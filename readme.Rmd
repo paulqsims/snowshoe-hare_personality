@@ -12,7 +12,7 @@ Data and code associated with the study "Repeatable differences in snowshoe hare
 
 This repository will be permanently archived at Zenodo, with the latest release to be found here: <!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
 
-A report summary containing all the R script output, including plots, can be found at [analysis-summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/analysis_summary.md) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
+A report summary containing all the R script output, including plots, can be found at [analysis_summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/reports/analysis_summary.md) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
 
 R Markdown files can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/render-Rmd.R) in `R/`
 
