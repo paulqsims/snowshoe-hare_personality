@@ -15,7 +15,7 @@ release to be found here:
 
 A report summary containing all the R script output, including plots,
 can be found at
-[analysis-summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/analysis_summary.Rmd)
+[analysis-summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/analysis_summary.md)
 in `reports/`. Markdown file versions (.md) are recommended for viewing
 on github and HMTL file versions (.html) are recommended for desktop
 viewing.
