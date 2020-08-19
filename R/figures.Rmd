@@ -16,7 +16,7 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 
 ## Setup
 
-```{r inno-predict-setup}
+```{r figure-setup}
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
 library(rptR)  # for repeatability analyses

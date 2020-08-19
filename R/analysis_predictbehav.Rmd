@@ -143,7 +143,7 @@ broom.mixed::tidy(m_expl_means,
 
 **Create data set with NA values removed**
 
-```{r shel-exit-data}
+```{r shel-exit-dat}
 data_shelExit <- 
   remove_dat_na(data_day, c("exit_fast", "trial",
                             "sex", "ID", "day",
@@ -228,7 +228,7 @@ data_shel <-
 
 **Predictor interaction selection**
 
-```{r shel-pref-predict}
+```{r shel-pref-predict, cache=TRUE}
 # Fit full model
 m_shel_base <- 
   glmer(shelter ~ t_point_sc * trial + 
@@ -336,7 +336,7 @@ data_OF <-
 
 **Predictor interaction selection**
 
-```{r OF-pref-predict}
+```{r OF-pref-predict, cache=TRUE}
 # Fit full model
 m_OF_base <- 
   glmer(of_loc ~ t_point_sc * trial + 
@@ -412,7 +412,7 @@ data_bkgrd <-
 
 **Predictor interaction selection**
 
-```{r bkgrd-pref-predict}
+```{r bkgrd-pref-predict, cache=TRUE}
 # Fit full model
 m_bkgrd_base <- 
   glmer(bkgrd ~ t_point_sc * trial + 
@@ -486,7 +486,7 @@ data_act <-
 
 **Predictor interaction selection**
 
-```{r act-pref-predict}
+```{r act-pref-predict, cache=TRUE}
 # Fit full model
 m_act_base <- 
   glmmTMB(line_cross ~ t_point_sc * trial + 

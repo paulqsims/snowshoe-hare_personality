@@ -133,7 +133,7 @@ data_shelExit_rpt <-
 
 **Test significance of individual intercept (1|ID)**
 
-```{r shel-exit-ID}
+```{r shel-exit-ID, cache=TRUE}
 # Fit model for adjusted repeatability
 m_AdjRpt_ExitLat <- 
   glmer(exit_fast ~ trial + sex + (1|ID),  
