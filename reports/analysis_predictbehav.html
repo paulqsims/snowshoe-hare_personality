@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="analyses-predictors-of-behavior">Analyses: Predictors of behavior</h1>
+<ul>
+<li>Author: Paul Q. Sims</li>
+<li>Contact: <a href="mailto:paul.q.sims@gmail.com">paul.q.sims@gmail.com</a></li>
+<li>Date: 2020</li>
+<li>Purpose: Analyses for predictors of behavior for Lafferty et al. 2020</li>
+</ul>
+<!-- end list -->
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>knitr<span class="op">::</span>opts_knit<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> rprojroot<span class="op">::</span><span class="kw">find_rstudio_root_file</span>(),</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>                     <span class="dt">eval =</span> <span class="ot">TRUE</span>, <span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>                     <span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">cache =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">root.dir =</span> rprojroot<span class="op">::</span><span class="kw">find_rstudio_root_file</span>(),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>                     <span class="dt">eval =</span> <span class="ot">TRUE</span>, <span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">message =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>                     <span class="dt">warning =</span> <span class="ot">FALSE</span>, <span class="dt">cache =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<h2 id="setup">Setup</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># Load libraries</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)  <span class="co"># for cleaning and modifying data</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">library</span>(rptR)  <span class="co"># for repeatability analyses</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">library</span>(lme4)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">library</span>(lmerTest)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">library</span>(DHARMa)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">library</span>(broom.mixed)  <span class="co"># for tidying model output</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">library</span>(knitr)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">library</span>(glmmTMB)  <span class="co"># for activity analyses</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="co"># Load personalized functions</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">source</span>(<span class="st">&quot;R/custom-functions.R&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="co"># Read in data </span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="co"># Data collected once each day</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>data_day &lt;-</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;data/data_day_LaffertyEtAl_2020.csv&quot;</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>           <span class="dt">col_types =</span> <span class="kw">list</span>(<span class="dt">exit_fast =</span> <span class="kw">col_factor</span>(),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>                            <span class="dt">trial =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>)),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>                            <span class="dt">sex =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)))) <span class="op">%&gt;%</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">obsID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.))  <span class="co"># observation level random effect</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a><span class="co"># Data collected at time points throughout the day</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>data_time &lt;-</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;data/data_time_LaffertyEtAl_2020.csv&quot;</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>             <span class="dt">col_types =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>)),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>                              <span class="dt">sex =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)),</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>                              <span class="dt">of_loc =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Inner&quot;</span>, <span class="st">&quot;Outer&quot;</span>)),</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>                              <span class="dt">bkgrd =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Light&quot;</span>, <span class="st">&quot;Dark&quot;</span>)))) <span class="op">%&gt;%</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">obsID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.),  <span class="co"># observation level random effect</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a>         <span class="kw">across</span>(<span class="kw">where</span>(is.character), <span class="op">~</span><span class="st"> </span><span class="kw">as_factor</span>(.x)))  </span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a><span class="co"># Data collected at time points throughout the day for lines crossed</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>data_act &lt;-</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a><span class="st">  </span><span class="kw">read_csv</span>(<span class="st">&quot;data/data_activity_LaffertyEtAl_2020.csv&quot;</span>,</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>             <span class="dt">col_types =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>)),</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>                              <span class="dt">sex =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>                              <span class="dt">loc =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Inner&quot;</span>, <span class="st">&quot;Outer&quot;</span>)),</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>                              <span class="dt">backg =</span> <span class="kw">col_factor</span>(<span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Light&quot;</span>, <span class="st">&quot;Dark&quot;</span>)))) <span class="op">%&gt;%</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">obsID =</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(.),  <span class="co"># observation level random effect</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>         <span class="kw">across</span>(<span class="kw">where</span>(is.character), <span class="op">~</span><span class="st"> </span><span class="kw">as_factor</span>(.x)))  </span></code></pre></div>
+<h3 id="area-explored">Area explored</h3>
+<ul>
+<li>Proportion of unique tiles entered</li>
+</ul>
+<p><strong>Create dataset without NAs</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>data_expl &lt;-<span class="st"> </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_day, <span class="kw">c</span>(<span class="st">&quot;uniq_tiles&quot;</span>, <span class="st">&quot;tile_fails&quot;</span>, <span class="st">&quot;trial&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>                            <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;obsID&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">expl.y =</span> <span class="kw">cbind</span>(uniq_tiles, tile_fails))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># Fit model</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>m_expl_full &lt;-<span class="st"> </span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(expl.y <span class="op">~</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>ID),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>        <span class="dt">data =</span> data_expl,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>        <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="co"># Test for significance of interactions</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="kw">drop1</span>(m_expl_full, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">211.05</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">211.71</td>
+<td align="left">2.67</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">210.51</td>
+<td align="left">1.46</td>
+<td align="left">0.23</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co"># Drop sex * mass interaction</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>m_expl_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_expl_full, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc) </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_expl_final,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (exp)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of area explored&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (exp)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">-0.51 (0.6)</td>
+<td align="left">0.16</td>
+<td align="left">-3.14</td>
+<td align="left">0.002</td>
+</tr>
+<tr class="even">
+<td align="left">trial1</td>
+<td align="left">-0.11 (0.89)</td>
+<td align="left">0.07</td>
+<td align="left">-1.63</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="odd">
+<td align="left">sexMale</td>
+<td align="left">0.44 (1.55)</td>
+<td align="left">0.24</td>
+<td align="left">1.85</td>
+<td align="left">0.064</td>
+</tr>
+<tr class="even">
+<td align="left">mass_sc</td>
+<td align="left">0.2 (1.23)</td>
+<td align="left">0.12</td>
+<td align="left">1.7</td>
+<td align="left">0.088</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of area explored</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># R squared (delta)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="kw">kable</span>(<span class="kw">t</span>(MuMIn<span class="op">::</span><span class="kw">r.squaredGLMM</span>(m_expl_final)[<span class="dv">2</span>,]), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a>      <span class="dt">caption =</span> <span class="st">&quot;Marginal and conditional R^2&quot;</span>) </span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R2m</th>
+<th align="left">R2c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.17</td>
+<td align="left">0.54</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal and conditional R^2</p>
+<p><strong>Marginal mean</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># Fit model</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>m_expl_means &lt;-<span class="st"> </span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(expl.y <span class="op">~</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>mass_sc <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>ID),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),  <span class="co"># Change contrasts for sex and trial</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>        <span class="dt">data =</span> data_expl,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>        <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_expl_means,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.pr =</span> <span class="kw">round_est</span>(<span class="kw">plogis</span>(estimate)),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.pr, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (proportion)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.pr) <span class="op">%&gt;%</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;(Intercept)&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Marginal mean area explored&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (proportion)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">-0.29 (0.43)</td>
+<td align="left">0.11</td>
+<td align="left">-2.66</td>
+<td align="left">0.008</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal mean area explored</p>
+<h3 id="risk-taking">Risk-taking</h3>
+<h4 id="shelter-exit-latency">Shelter exit latency</h4>
+<ul>
+<li>Exit immediately: yes or no</li>
+</ul>
+<p><strong>Create data set with NA values removed</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a>data_shelExit &lt;-<span class="st"> </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_day, <span class="kw">c</span>(<span class="st">&quot;exit_fast&quot;</span>, <span class="st">&quot;trial&quot;</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>                            <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;day&quot;</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>                            <span class="st">&quot;obsID&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># Fit model</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>m_ExitLat_full &lt;-<span class="st"> </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(exit_fast <span class="op">~</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>ID),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>        <span class="dt">data =</span> data_shelExit,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>        <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a><span class="co"># Test for significance of interactions</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a><span class="kw">drop1</span>(m_ExitLat_full, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">53.98</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">55.37</td>
+<td align="left">3.39</td>
+<td align="left">0.066</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">54.47</td>
+<td align="left">2.49</td>
+<td align="left">0.11</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># Drop sex * mass interaction</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>m_ExitLat_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_ExitLat_full, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc) </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_ExitLat_final,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (exp)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of shelter exit latency&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (exp)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">1.6 (4.93)</td>
+<td align="left">0.97</td>
+<td align="left">1.65</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">trial1</td>
+<td align="left">0.78 (2.18)</td>
+<td align="left">0.49</td>
+<td align="left">1.58</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="odd">
+<td align="left">sexMale</td>
+<td align="left">-2.27 (0.1)</td>
+<td align="left">1.4</td>
+<td align="left">-1.62</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="even">
+<td align="left">mass_sc</td>
+<td align="left">-0.95 (0.39)</td>
+<td align="left">0.7</td>
+<td align="left">-1.36</td>
+<td align="left">0.17</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of shelter exit latency</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co"># R squared (delta)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="kw">kable</span>(<span class="kw">t</span>(MuMIn<span class="op">::</span><span class="kw">r.squaredGLMM</span>(m_ExitLat_final)[<span class="dv">2</span>,]), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a>      <span class="dt">caption =</span> <span class="st">&quot;Marginal and conditional R^2&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R2m</th>
+<th align="left">R2c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.24</td>
+<td align="left">0.49</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal and conditional R^2</p>
+<p><strong>Marginal mean</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="co"># Fit model</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a>m_ExitLat_means &lt;-<span class="st"> </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(exit_fast <span class="op">~</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span>sex <span class="op">+</span><span class="st"> </span>mass_sc <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>ID),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),  <span class="co"># Change contrasts for sex and trial</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true"></a>        <span class="dt">data =</span> data_shelExit,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true"></a>        <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_ExitLat_means,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.pr =</span> <span class="kw">round_est</span>(<span class="kw">plogis</span>(estimate)),</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.pr, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (probability)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.pr) <span class="op">%&gt;%</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;(Intercept)&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Marginal mean shelter exit latency&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (probability)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">0.46 (0.61)</td>
+<td align="left">0.55</td>
+<td align="left">0.84</td>
+<td align="left">0.4</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal mean shelter exit latency</p>
+<h4 id="shelter-preference">Shelter preference</h4>
+<ul>
+<li>Inside or outside the shelter</li>
+</ul>
+<p><strong>Create data set with NA values removed</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a>data_shel &lt;-<span class="st"> </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_time, <span class="kw">c</span>(<span class="st">&quot;shelter&quot;</span>, <span class="st">&quot;t_point_sc&quot;</span>, <span class="st">&quot;trial&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a>                             <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;trial_series&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;bkgrd&quot;</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a>                             <span class="st">&quot;obsID&quot;</span>))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co"># Fit full model</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a>m_shel_base &lt;-<span class="st"> </span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(shelter <span class="op">~</span><span class="st"> </span>t_point_sc <span class="op">*</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a><span class="st">          </span>bkgrd <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>bkgrd <span class="op">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a><span class="st">          </span>(t_point_sc<span class="op">|</span>trial_series),  </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a>        <span class="dt">data =</span> data_shel,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>                    <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a><span class="co"># Find largest non-significant p-value for interaction</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true"></a><span class="kw">drop1</span>(m_shel_base, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">403.89</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">402.18</td>
+<td align="left">0.29</td>
+<td align="left">0.59</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">404.2</td>
+<td align="left">2.31</td>
+<td align="left">0.13</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">404.18</td>
+<td align="left">2.29</td>
+<td align="left">0.13</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">403.52</td>
+<td align="left">1.63</td>
+<td align="left">0.2</td>
+</tr>
+<tr class="even">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">402.27</td>
+<td align="left">0.38</td>
+<td align="left">0.54</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co"># Remove largest non-significant p-value for interaction and update model and continue process</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a>m1_shel_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m_shel_base, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>trial)  <span class="co"># Remove most non-sig interactions</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a>m1_shel_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m1_shel_tmp, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)  <span class="co"># Update model and check remaining sig interactions</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a>m1_shel_LRT <span class="op">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">402.18</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">400.26</td>
+<td align="left">0.08</td>
+<td align="left">0.77</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">402.55</td>
+<td align="left">2.37</td>
+<td align="left">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">402.47</td>
+<td align="left">2.28</td>
+<td align="left">0.13</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">401.71</td>
+<td align="left">1.53</td>
+<td align="left">0.22</td>
+</tr>
+<tr class="even">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">400.57</td>
+<td align="left">0.38</td>
+<td align="left">0.54</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a>m2_shel_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m1_shel_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>bkgrd)  <span class="co"># same as above</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a>m2_shel_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m2_shel_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a>m2_shel_LRT <span class="op">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">400.57</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">398.64</td>
+<td align="left">0.08</td>
+<td align="left">0.78</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">400.95</td>
+<td align="left">2.38</td>
+<td align="left">0.12</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">400.77</td>
+<td align="left">2.2</td>
+<td align="left">0.14</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">400.44</td>
+<td align="left">1.87</td>
+<td align="left">0.17</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a>m3_shel_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m2_shel_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>bkgrd)  <span class="co"># same as above</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a>m3_shel_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m3_shel_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a>m3_shel_LRT <span class="op">%&gt;%</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">400.44</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">398.57</td>
+<td align="left">0.13</td>
+<td align="left">0.72</td>
+</tr>
+<tr class="odd">
+<td align="left">bkgrd</td>
+<td align="left">1</td>
+<td align="left">398.61</td>
+<td align="left">0.17</td>
+<td align="left">0.68</td>
+</tr>
+<tr class="even">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">400.52</td>
+<td align="left">2.08</td>
+<td align="left">0.15</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">400.32</td>
+<td align="left">1.88</td>
+<td align="left">0.17</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a>m4_shel_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m3_shel_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>sex)  <span class="co"># same as above</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a>m4_shel_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m4_shel_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a>m4_shel_LRT <span class="op">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">400.32</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">398.56</td>
+<td align="left">0.23</td>
+<td align="left">0.63</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">398.46</td>
+<td align="left">0.14</td>
+<td align="left">0.71</td>
+</tr>
+<tr class="even">
+<td align="left">bkgrd</td>
+<td align="left">1</td>
+<td align="left">398.47</td>
+<td align="left">0.14</td>
+<td align="left">0.7</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">400.16</td>
+<td align="left">1.84</td>
+<td align="left">0.17</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a>m5_shel_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m4_shel_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc)  <span class="co"># same as above</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a>m5_shel_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m5_shel_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a>m5_shel_LRT <span class="op">%&gt;%</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">400.16</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">398.57</td>
+<td align="left">0.4</td>
+<td align="left">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">398.32</td>
+<td align="left">0.16</td>
+<td align="left">0.69</td>
+</tr>
+<tr class="even">
+<td align="left">sex</td>
+<td align="left">1</td>
+<td align="left">401.61</td>
+<td align="left">3.44</td>
+<td align="left">0.063</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">1</td>
+<td align="left">399.93</td>
+<td align="left">1.76</td>
+<td align="left">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">bkgrd</td>
+<td align="left">1</td>
+<td align="left">398.41</td>
+<td align="left">0.24</td>
+<td align="left">0.62</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="co"># Fit final model of predictors</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a>m_shel_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_shel_base, <span class="kw">formula</span>(m5_shel_tmp))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_shel_final,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (odds ratio)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of shelter preference&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (odds ratio)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">-5.31 (&lt;0.01)</td>
+<td align="left">1.21</td>
+<td align="left">-4.38</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">-0.45 (0.64)</td>
+<td align="left">0.72</td>
+<td align="left">-0.63</td>
+<td align="left">0.53</td>
+</tr>
+<tr class="odd">
+<td align="left">trial1</td>
+<td align="left">-0.2 (0.82)</td>
+<td align="left">0.5</td>
+<td align="left">-0.4</td>
+<td align="left">0.69</td>
+</tr>
+<tr class="even">
+<td align="left">sex1</td>
+<td align="left">-1.13 (0.32)</td>
+<td align="left">0.59</td>
+<td align="left">-1.92</td>
+<td align="left">0.054</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">-0.78 (0.46)</td>
+<td align="left">0.59</td>
+<td align="left">-1.32</td>
+<td align="left">0.19</td>
+</tr>
+<tr class="even">
+<td align="left">bkgrdDark</td>
+<td align="left">-0.25 (0.78)</td>
+<td align="left">0.49</td>
+<td align="left">-0.5</td>
+<td align="left">0.62</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of shelter preference</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="co"># R squared (delta)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="kw">kable</span>(<span class="kw">t</span>(MuMIn<span class="op">::</span><span class="kw">r.squaredGLMM</span>(m_shel_final)[<span class="dv">2</span>,]), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a>      <span class="dt">caption =</span> <span class="st">&quot;Marginal and conditional R^2&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R2m</th>
+<th align="left">R2c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">0.08</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal and conditional R^2</p>
+<h5 id="marginal-mean">Marginal Mean</h5>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a>m_shel_final_marg &lt;-<span class="st"> </span><span class="kw">update</span>(m_shel_final,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a>                            <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a>                                             <span class="dt">bkgrd =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a>m_shel_final_marg <span class="op">%&gt;%</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">pretty_PredictTab</span>(., <span class="dt">mixedModel =</span> <span class="ot">TRUE</span>, <span class="dt">kable =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round</span>(<span class="kw">exp</span>(<span class="kw">as.numeric</span>(estimate)), <span class="dt">digits =</span> <span class="dv">3</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true"></a>                          <span class="st">&quot; (&quot;</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true"></a>                          <span class="kw">round</span>(<span class="kw">plogis</span>(<span class="kw">as.numeric</span>(estimate)), <span class="dt">digits =</span> <span class="dv">3</span>),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true"></a>                          <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &quot;(Intercept)&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate odds ratio (probability)</span><span class="st">`</span> =<span class="st"> </span>estimate) <span class="op">%&gt;%</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate odds ratio (probability)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">0.004 (0.004)</td>
+<td align="left">1.15</td>
+<td align="left">-4.74</td>
+<td align="left">&lt;0.001</td>
+</tr>
+</tbody>
+</table>
+<h4 id="open-field-location-preference">Open-Field location preference</h4>
+<ul>
+<li>Inner or Outer area of the Open-Field</li>
+</ul>
+<p><strong>Create data set with NA values removed</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a>data_OF &lt;-<span class="st"> </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_time, <span class="kw">c</span>(<span class="st">&quot;of_loc&quot;</span>, <span class="st">&quot;t_point_sc&quot;</span>, <span class="st">&quot;trial&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true"></a>                             <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;trial_series&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;bkgrd&quot;</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true"></a>                             <span class="st">&quot;obsID&quot;</span>))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="co"># Fit full model</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true"></a>m_OF_base &lt;-<span class="st"> </span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(of_loc <span class="op">~</span><span class="st"> </span>t_point_sc <span class="op">*</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true"></a><span class="st">          </span>bkgrd <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>bkgrd <span class="op">+</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true"></a><span class="st">          </span>(<span class="dv">1</span><span class="op">|</span>ID) <span class="op">+</span><span class="st"> </span>(t_point_sc<span class="op">|</span>trial_series),  </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true"></a>        <span class="dt">data =</span> data_OF,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true"></a>                         <span class="dt">bkgrd =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true"></a>                    <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true"></a><span class="co"># Find largest non-significant p-value for interaction</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true"></a><span class="kw">drop1</span>(m_OF_base, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">884.32</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">882.82</td>
+<td align="left">0.5</td>
+<td align="left">0.48</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">882.81</td>
+<td align="left">0.49</td>
+<td align="left">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">882.34</td>
+<td align="left">0.02</td>
+<td align="left">0.88</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">896.9</td>
+<td align="left">14.58</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">889.42</td>
+<td align="left">7.11</td>
+<td align="left">0.008</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="co"># Remove largest non-significant p-value for interaction and update model and continue process</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a>m1_OF_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m_OF_base, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>sex)  <span class="co"># Remove most non-sig interactions</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a>m1_OF_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m1_OF_tmp, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)  <span class="co"># Update model and check remaining sig interactions</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a>m1_OF_LRT <span class="op">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">882.34</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">880.84</td>
+<td align="left">0.5</td>
+<td align="left">0.48</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">880.83</td>
+<td align="left">0.49</td>
+<td align="left">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">895.06</td>
+<td align="left">14.72</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">887.44</td>
+<td align="left">7.1</td>
+<td align="left">0.008</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a>m2_OF_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m1_OF_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc)  <span class="co"># same as above</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a>m2_OF_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m2_OF_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a>m2_OF_LRT <span class="op">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">880.83</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">mass_sc</td>
+<td align="left">1</td>
+<td align="left">879.04</td>
+<td align="left">0.2</td>
+<td align="left">0.65</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">879.33</td>
+<td align="left">0.5</td>
+<td align="left">0.48</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">893.77</td>
+<td align="left">14.94</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">886.11</td>
+<td align="left">7.28</td>
+<td align="left">0.007</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a>m3_OF_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m2_OF_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>trial)  <span class="co"># same as above</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a>m3_OF_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m3_OF_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a>m3_OF_LRT <span class="op">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">879.33</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">877.42</td>
+<td align="left">0.09</td>
+<td align="left">0.76</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">1</td>
+<td align="left">877.53</td>
+<td align="left">0.19</td>
+<td align="left">0.66</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:bkgrd</td>
+<td align="left">1</td>
+<td align="left">891.95</td>
+<td align="left">14.62</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:bkgrd</td>
+<td align="left">1</td>
+<td align="left">884.59</td>
+<td align="left">7.25</td>
+<td align="left">0.007</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="co"># Fit final model of predictors</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a>m_OF_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_OF_base, <span class="kw">formula</span>(m3_OF_tmp))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_OF_final,</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (odds ratio)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of Open-Field location preference&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (odds ratio)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">1.55 (4.69)</td>
+<td align="left">0.31</td>
+<td align="left">4.97</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">0.61 (1.84)</td>
+<td align="left">0.18</td>
+<td align="left">3.38</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">trial1</td>
+<td align="left">0.05 (1.05)</td>
+<td align="left">0.16</td>
+<td align="left">0.3</td>
+<td align="left">0.76</td>
+</tr>
+<tr class="even">
+<td align="left">sex1</td>
+<td align="left">0.36 (1.44)</td>
+<td align="left">0.31</td>
+<td align="left">1.18</td>
+<td align="left">0.24</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">-0.13 (0.87)</td>
+<td align="left">0.31</td>
+<td align="left">-0.44</td>
+<td align="left">0.66</td>
+</tr>
+<tr class="even">
+<td align="left">bkgrd1</td>
+<td align="left">-0.53 (0.59)</td>
+<td align="left">0.16</td>
+<td align="left">-3.3</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:bkgrd1</td>
+<td align="left">-0.56 (0.57)</td>
+<td align="left">0.15</td>
+<td align="left">-3.65</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">sex1:bkgrd1</td>
+<td align="left">-0.38 (0.68)</td>
+<td align="left">0.14</td>
+<td align="left">-2.65</td>
+<td align="left">0.008</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of Open-Field location preference</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="co"># R squared (delta)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="kw">kable</span>(<span class="kw">t</span>(MuMIn<span class="op">::</span><span class="kw">r.squaredGLMM</span>(m_OF_final)[<span class="dv">2</span>,]), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true"></a>      <span class="dt">caption =</span> <span class="st">&quot;Marginal and conditional R^2&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R2m</th>
+<th align="left">R2c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.12</td>
+<td align="left">0.42</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal and conditional R^2</p>
+<h3 id="background-preference-preference">Background preference preference</h3>
+<ul>
+<li>Light or dark background</li>
+</ul>
+<p><strong>Create data set with NA values removed</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a>data_bkgrd &lt;-<span class="st"> </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_time, <span class="kw">c</span>(<span class="st">&quot;bkgrd&quot;</span>, <span class="st">&quot;t_point_sc&quot;</span>, <span class="st">&quot;trial&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true"></a>                             <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;trial_series&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;obsID&quot;</span>))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="co"># Fit full model</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a>m_bkgrd_base &lt;-<span class="st"> </span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmer</span>(bkgrd <span class="op">~</span><span class="st"> </span>t_point_sc <span class="op">*</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true"></a><span class="st">          </span>sex <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true"></a><span class="st">          </span>(<span class="dv">1</span><span class="op">|</span>ID) <span class="op">+</span><span class="st"> </span>(<span class="dv">0</span> <span class="op">+</span><span class="st"> </span>t_point_sc<span class="op">|</span>ID) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>trial_series) <span class="op">+</span><span class="st"> </span>(<span class="dv">0</span> <span class="op">+</span><span class="st"> </span>t_point_sc<span class="op">|</span>trial_series),</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true"></a>        <span class="dt">data =</span> data_bkgrd,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true"></a>        <span class="dt">family =</span> <span class="st">&quot;binomial&quot;</span>, </span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true"></a>        <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)),</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true"></a>        <span class="kw">glmerControl</span>(<span class="dt">optimizer=</span><span class="st">&quot;bobyqa&quot;</span>,</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true"></a>                    <span class="dt">optCtrl =</span> <span class="kw">list</span>(<span class="dt">maxfun =</span> <span class="fl">1e6</span>)))</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true"></a><span class="co"># Find largest non-significant p-value for interaction</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true"></a><span class="kw">drop1</span>(m_bkgrd_base, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">731.09</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">729.27</td>
+<td align="left">0.18</td>
+<td align="left">0.67</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">730.87</td>
+<td align="left">1.78</td>
+<td align="left">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">730.34</td>
+<td align="left">1.25</td>
+<td align="left">0.26</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="co"># Remove largest non-significant p-value for interaction and update model and continue process</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a>m1_bkgrd_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m_bkgrd_base, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>trial)  <span class="co"># Remove most non-sig interactions</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a>m1_bkgrd_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m1_bkgrd_tmp, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)  <span class="co"># Update model and check remaining sig interactions</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true"></a>m1_bkgrd_LRT <span class="op">%&gt;%</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">729.27</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">728.43</td>
+<td align="left">1.16</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">729.04</td>
+<td align="left">1.77</td>
+<td align="left">0.18</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">728.52</td>
+<td align="left">1.25</td>
+<td align="left">0.26</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true"></a>m2_bkgrd_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m1_bkgrd_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>sex)  <span class="co"># same as above</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true"></a>m2_bkgrd_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m2_bkgrd_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true"></a>m2_bkgrd_LRT <span class="op">%&gt;%</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">728.52</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">727.51</td>
+<td align="left">0.99</td>
+<td align="left">0.32</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">727.62</td>
+<td align="left">1.1</td>
+<td align="left">0.3</td>
+</tr>
+<tr class="even">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">728.34</td>
+<td align="left">1.82</td>
+<td align="left">0.18</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a>m3_bkgrd_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m2_bkgrd_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc)  <span class="co"># same as above</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true"></a>m3_bkgrd_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m3_bkgrd_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true"></a>m3_bkgrd_LRT <span class="op">%&gt;%</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glm =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">npar</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">728.34</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">727.28</td>
+<td align="left">0.94</td>
+<td align="left">0.33</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">727.42</td>
+<td align="left">1.08</td>
+<td align="left">0.3</td>
+</tr>
+<tr class="even">
+<td align="left">sex</td>
+<td align="left">1</td>
+<td align="left">726.39</td>
+<td align="left">0.05</td>
+<td align="left">0.83</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">1</td>
+<td align="left">727.01</td>
+<td align="left">0.67</td>
+<td align="left">0.41</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a><span class="co"># Fit final model bkgrd predictors</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a>m_bkgrd_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_bkgrd_base, <span class="kw">formula</span>(m3_bkgrd_tmp))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_bkgrd_final,</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="st">`</span><span class="dt">estimate (odds ratio)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of background preference&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (odds ratio)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">1.54 (4.67)</td>
+<td align="left">0.46</td>
+<td align="left">3.33</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">-0.27 (0.76)</td>
+<td align="left">0.27</td>
+<td align="left">-1.01</td>
+<td align="left">0.31</td>
+</tr>
+<tr class="odd">
+<td align="left">trial1</td>
+<td align="left">-0.23 (0.8)</td>
+<td align="left">0.21</td>
+<td align="left">-1.09</td>
+<td align="left">0.27</td>
+</tr>
+<tr class="even">
+<td align="left">sex1</td>
+<td align="left">-0.11 (0.9)</td>
+<td align="left">0.5</td>
+<td align="left">-0.22</td>
+<td align="left">0.83</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">0.43 (1.53)</td>
+<td align="left">0.51</td>
+<td align="left">0.83</td>
+<td align="left">0.41</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of background preference</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true"></a><span class="co"># R squared (delta)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true"></a><span class="kw">kable</span>(<span class="kw">t</span>(MuMIn<span class="op">::</span><span class="kw">r.squaredGLMM</span>(m_bkgrd_final)[<span class="dv">2</span>,]), <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true"></a>      <span class="dt">caption =</span> <span class="st">&quot;Marginal and conditional R^2&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R2m</th>
+<th align="left">R2c</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0.03</td>
+<td align="left">0.59</td>
+</tr>
+</tbody>
+</table>
+<p>Marginal and conditional R^2</p>
+<h3 id="activity">Activity</h3>
+<ul>
+<li>Number of lines crossed</li>
+</ul>
+<p><strong>Create data set with NA values removed</strong></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a>data_act &lt;-<span class="st"> </span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">remove_dat_na</span>(data_act, <span class="kw">c</span>(<span class="st">&quot;line_cross&quot;</span>, <span class="st">&quot;t_point_sc&quot;</span>, <span class="st">&quot;trial&quot;</span>, <span class="st">&quot;mass_sc&quot;</span>,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a>                             <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;ID&quot;</span>, <span class="st">&quot;trial_series&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;obsID&quot;</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true"></a>                             <span class="st">&quot;backg&quot;</span>, <span class="st">&quot;loc&quot;</span>, <span class="st">&quot;shel_dur&quot;</span>))</span></code></pre></div>
+<p><strong>Predictor interaction selection</strong></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="co"># Fit full model</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a>m_act_base &lt;-<span class="st"> </span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">glmmTMB</span>(line_cross <span class="op">~</span><span class="st"> </span>t_point_sc <span class="op">*</span><span class="st"> </span>trial <span class="op">+</span><span class="st"> </span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a><span class="st">            </span>sex <span class="op">*</span><span class="st"> </span>mass_sc <span class="op">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a><span class="st">            </span>sex <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true"></a><span class="st">            </span>sex <span class="op">*</span><span class="st"> </span>backg <span class="op">+</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true"></a><span class="st">            </span>sex <span class="op">*</span><span class="st"> </span>loc <span class="op">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true"></a><span class="st">            </span>backg <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true"></a><span class="st">            </span>loc <span class="op">*</span><span class="st"> </span>backg <span class="op">+</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true"></a><span class="st">            </span>loc <span class="op">*</span><span class="st"> </span>t_point_sc <span class="op">+</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true"></a><span class="st">            </span>(<span class="dv">1</span><span class="op">|</span>ID) <span class="op">+</span><span class="st"> </span>(t_point_sc<span class="op">|</span>trial_series),</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true"></a>          <span class="dt">data =</span> data_act,</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true"></a>          <span class="dt">ziformula=</span> <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true"></a>          <span class="dt">family=</span><span class="st">&quot;nbinom2&quot;</span>, </span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true"></a>          <span class="dt">contrasts =</span> <span class="kw">list</span>(<span class="dt">trial =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">sex =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>),</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true"></a>                           <span class="dt">loc =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>), <span class="dt">backg =</span> <span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>)))</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true"></a></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true"></a><span class="co"># Find largest non-significant p-value for interaction</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true"></a>m_act_LRT &lt;-<span class="st"> </span></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">drop1</span>(m_act_base, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>(.)</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true"></a></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true"></a><span class="co"># Remove largest non-significant p-value for interaction and update model and continue process</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true"></a>m1_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m_act_base, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>backg)  <span class="co"># Remove most non-sig interactions</span></span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true"></a>m1_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m1_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)  <span class="co"># Update model and check remaining sig interactions</span></span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true"></a>m1_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable_title</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6461.6</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">6460.01</td>
+<td align="left">0.41</td>
+<td align="left">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6460.06</td>
+<td align="left">0.46</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">6459.77</td>
+<td align="left">0.17</td>
+<td align="left">0.68</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:backg</td>
+<td align="left">1</td>
+<td align="left">6460</td>
+<td align="left">0.4</td>
+<td align="left">0.53</td>
+</tr>
+<tr class="even">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6466.94</td>
+<td align="left">7.34</td>
+<td align="left">0.007</td>
+</tr>
+<tr class="odd">
+<td align="left">backg:loc</td>
+<td align="left">1</td>
+<td align="left">6459.62</td>
+<td align="left">0.02</td>
+<td align="left">0.89</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:loc</td>
+<td align="left">1</td>
+<td align="left">6459.68</td>
+<td align="left">0.08</td>
+<td align="left">0.78</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a>m2_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m1_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>backg<span class="op">:</span>loc)  <span class="co"># same as above</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a>m2_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m2_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a>m2_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6459.62</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">6458.03</td>
+<td align="left">0.41</td>
+<td align="left">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6458.08</td>
+<td align="left">0.46</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:sex</td>
+<td align="left">1</td>
+<td align="left">6457.79</td>
+<td align="left">0.17</td>
+<td align="left">0.68</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:backg</td>
+<td align="left">1</td>
+<td align="left">6458.02</td>
+<td align="left">0.4</td>
+<td align="left">0.53</td>
+</tr>
+<tr class="even">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6464.96</td>
+<td align="left">7.34</td>
+<td align="left">0.007</td>
+</tr>
+<tr class="odd">
+<td align="left">t_point_sc:loc</td>
+<td align="left">1</td>
+<td align="left">6457.7</td>
+<td align="left">0.08</td>
+<td align="left">0.77</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true"></a>m3_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m2_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>sex)  <span class="co"># same as above</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true"></a>m3_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m3_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true"></a>m3_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6457.79</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">6456.17</td>
+<td align="left">0.38</td>
+<td align="left">0.54</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6456.24</td>
+<td align="left">0.45</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">sex:backg</td>
+<td align="left">1</td>
+<td align="left">6456.19</td>
+<td align="left">0.41</td>
+<td align="left">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6463.13</td>
+<td align="left">7.34</td>
+<td align="left">0.007</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:loc</td>
+<td align="left">1</td>
+<td align="left">6455.87</td>
+<td align="left">0.08</td>
+<td align="left">0.78</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a>m4_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m3_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>loc)  <span class="co"># same as above</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a>m4_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m4_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a>m4_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6455.87</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc:trial</td>
+<td align="left">1</td>
+<td align="left">6454.24</td>
+<td align="left">0.38</td>
+<td align="left">0.54</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6454.32</td>
+<td align="left">0.45</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">sex:backg</td>
+<td align="left">1</td>
+<td align="left">6454.28</td>
+<td align="left">0.41</td>
+<td align="left">0.52</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6461.13</td>
+<td align="left">7.26</td>
+<td align="left">0.007</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true"></a>m5_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m4_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>t_point_sc<span class="op">:</span>trial)  <span class="co"># same as above</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true"></a>m5_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m5_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true"></a>m5_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6454.24</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">6472.09</td>
+<td align="left">19.85</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">6454.77</td>
+<td align="left">2.52</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="even">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6452.69</td>
+<td align="left">0.45</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:backg</td>
+<td align="left">1</td>
+<td align="left">6452.62</td>
+<td align="left">0.37</td>
+<td align="left">0.54</td>
+</tr>
+<tr class="even">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6459.52</td>
+<td align="left">7.28</td>
+<td align="left">0.007</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true"></a>m6_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m5_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>backg)  <span class="co"># same as above</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true"></a>m6_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m6_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true"></a>m6_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6452.62</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">6470.31</td>
+<td align="left">19.69</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">6453.17</td>
+<td align="left">2.55</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="even">
+<td align="left">backg</td>
+<td align="left">1</td>
+<td align="left">6483.76</td>
+<td align="left">33.14</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">sex:mass_sc</td>
+<td align="left">1</td>
+<td align="left">6451.08</td>
+<td align="left">0.46</td>
+<td align="left">0.5</td>
+</tr>
+<tr class="even">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6458.16</td>
+<td align="left">7.54</td>
+<td align="left">0.006</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true"></a><span class="co"># Same as above</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true"></a>m7_act_tmp &lt;-<span class="st"> </span><span class="kw">update</span>(m6_act_tmp, <span class="op">~</span><span class="st"> </span>. <span class="op">-</span>sex<span class="op">:</span>mass_sc)  <span class="co"># same as above</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true"></a>m7_act_LRT &lt;-<span class="st"> </span><span class="kw">drop1</span>(m7_act_tmp, <span class="dt">test =</span> <span class="st">&quot;Chi&quot;</span>)  <span class="co"># same as above</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true"></a>m7_act_LRT <span class="op">%&gt;%</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">rd_stepwise_out</span>(., <span class="dt">glmmTMB =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true"></a><span class="st">  </span>knitr<span class="op">::</span><span class="kw">kable</span>(.)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="left">Df</th>
+<th align="left">AIC</th>
+<th align="left">LRT</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><none></td>
+<td align="left">NA</td>
+<td align="left">6451.08</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">1</td>
+<td align="left">6468.81</td>
+<td align="left">19.73</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">trial</td>
+<td align="left">1</td>
+<td align="left">6451.61</td>
+<td align="left">2.53</td>
+<td align="left">0.11</td>
+</tr>
+<tr class="even">
+<td align="left">mass_sc</td>
+<td align="left">1</td>
+<td align="left">6450.26</td>
+<td align="left">1.18</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="odd">
+<td align="left">backg</td>
+<td align="left">1</td>
+<td align="left">6482.24</td>
+<td align="left">33.16</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">sex:loc</td>
+<td align="left">1</td>
+<td align="left">6456.56</td>
+<td align="left">7.48</td>
+<td align="left">0.006</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true"></a><span class="co"># Fit final model act predictors</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true"></a>m_act_final &lt;-<span class="st"> </span><span class="kw">update</span>(m_act_base, <span class="kw">formula</span>(m7_act_tmp))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true"></a><span class="co"># Tidy model output</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true"></a>broom.mixed<span class="op">::</span><span class="kw">tidy</span>(m_act_final,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true"></a>                  <span class="dt">effects =</span> <span class="st">&quot;fixed&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">estimate.exp =</span> <span class="kw">round_est</span>(<span class="kw">exp</span>(estimate)),</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true"></a>         <span class="dt">estimate =</span> <span class="kw">paste</span>(<span class="kw">round_est</span>(estimate),<span class="st">&quot; (&quot;</span>,estimate.exp, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>),</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true"></a>         <span class="dt">std.error =</span> <span class="kw">round_est</span>(std.error),</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true"></a>         <span class="dt">statistic =</span> <span class="kw">round_est</span>(statistic),</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true"></a>         <span class="dt">p.value =</span> <span class="kw">round_pval</span>(p.value)) <span class="op">%&gt;%</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">filter</span>(component <span class="op">==</span><span class="st"> &quot;cond&quot;</span>) <span class="op">%&gt;%</span></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>effect, <span class="op">-</span>component, <span class="st">`</span><span class="dt">estimate (count rate)</span><span class="st">`</span> =<span class="st"> </span>estimate, <span class="op">-</span>estimate.exp) <span class="op">%&gt;%</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true"></a><span class="st">  </span><span class="kw">kable</span>(., <span class="dt">align =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true"></a>        <span class="dt">caption =</span> <span class="st">&quot;Predictors of activity&quot;</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">term</th>
+<th align="left">estimate (count rate)</th>
+<th align="left">std.error</th>
+<th align="left">statistic</th>
+<th align="left">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">(Intercept)</td>
+<td align="left">0.08 (1.08)</td>
+<td align="left">0.5</td>
+<td align="left">0.16</td>
+<td align="left">0.87</td>
+</tr>
+<tr class="even">
+<td align="left">t_point_sc</td>
+<td align="left">-1 (0.37)</td>
+<td align="left">0.21</td>
+<td align="left">-4.66</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">trial1</td>
+<td align="left">-0.2 (0.82)</td>
+<td align="left">0.12</td>
+<td align="left">-1.64</td>
+<td align="left">0.1</td>
+</tr>
+<tr class="even">
+<td align="left">sex1</td>
+<td align="left">-0.23 (0.79)</td>
+<td align="left">0.49</td>
+<td align="left">-0.47</td>
+<td align="left">0.64</td>
+</tr>
+<tr class="odd">
+<td align="left">mass_sc</td>
+<td align="left">-0.53 (0.59)</td>
+<td align="left">0.49</td>
+<td align="left">-1.09</td>
+<td align="left">0.28</td>
+</tr>
+<tr class="even">
+<td align="left">backg1</td>
+<td align="left">0.31 (1.36)</td>
+<td align="left">0.05</td>
+<td align="left">5.76</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">loc1</td>
+<td align="left">0.42 (1.53)</td>
+<td align="left">0.05</td>
+<td align="left">8.24</td>
+<td align="left">&lt;0.001</td>
+</tr>
+<tr class="even">
+<td align="left">sex1:loc1</td>
+<td align="left">0.14 (1.15)</td>
+<td align="left">0.05</td>
+<td align="left">2.74</td>
+<td align="left">0.006</td>
+</tr>
+</tbody>
+</table>
+<p>Predictors of activity</p>
+<ul>
+<li>R<sup>2</sup> unavailable for glmmTMB</li>
+</ul>
+
+</body>
+</html>
