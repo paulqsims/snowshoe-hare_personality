@@ -4,7 +4,7 @@ readme
 ## Description
 
 Data and code associated with the study “Repeatable differences in
-snowshoe hare behavior: animal personality may facilitate adaption to
+snowshoe hare behavior: Animal personality may facilitate adaption to
 climate change”. *In prep*. Please see the publication for further
 details on data collection, the experimental apparatus, procedure, and
 statistical analyses.

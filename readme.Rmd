@@ -8,7 +8,7 @@ output:
 
 ## Description
 
-Data and code associated with the study "Repeatable differences in snowshoe hare behavior: animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
+Data and code associated with the study "Repeatable differences in snowshoe hare behavior: Animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
 
 This repository will be permanently archived at Zenodo, with the latest release to be found here: <!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
 
