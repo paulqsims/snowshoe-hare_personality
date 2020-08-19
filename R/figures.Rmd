@@ -1,0 +1,62 @@
+# Figures  
+- Author: Paul Q. Sims
+- Contact: paul.q.sims@gmail.com
+- Date: 2020
+- Purpose: Figures for Lafferty et al. 2020
+
+```{r figure-knitr-opts}
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file(),
+                     eval = TRUE, echo = TRUE, message = FALSE,
+                     warning = FALSE)
+knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
+                      fig.path = "../figs/",
+                     eval = TRUE, echo = TRUE, message = FALSE,
+                     warning = FALSE, dev = c("png", "pdf"), dpi = 300)
+```
+
+## Setup
+
+```{r inno-predict-setup}
+# Load libraries
+library(tidyverse)  # for cleaning and modifying data
+library(rptR)  # for repeatability analyses
+library(lme4)
+library(lmerTest)
+library(DHARMa)
+library(broom.mixed)  # for tidying model output
+library(knitr)
+library(glmmTMB)  # for activity analyses
+
+# Load personalized functions
+source("R/custom-functions.R")
+
+# Read in data 
+# Data collected once each day
+data_day <-
+  read_csv("data/data_day_LaffertyEtAl_2020.csv",
+           col_types = list(exit_fast = col_factor(),
+                            trial = col_factor(levels = c("1", "2")),
+                            sex = col_factor(levels = c("Female", "Male")))) %>%
+  mutate(obsID = 1:nrow(.),  # observation level random effect
+         expl.y = cbind(uniq_tiles, tile_fails))  # cbind successes/fails
+
+# Data collected at time points throughout the day
+data_time <-
+  read_csv("data/data_time_LaffertyEtAl_2020.csv",
+             col_types = list(trial = col_factor(levels = c("1", "2")),
+                              sex = col_factor(levels = c("Female", "Male")),
+                              of_loc = col_factor(levels = c("Inner", "Outer")),
+                              bkgrd = col_factor(levels = c("Light", "Dark")))) %>%
+  mutate(obsID = 1:nrow(.),  # observation level random effect
+         across(where(is.character), ~ as_factor(.x)))  
+
+# Data collected at time points throughout the day for lines crossed
+data_act <-
+  read_csv("data/data_activity_LaffertyEtAl_2020.csv",
+             col_types = list(trial = col_factor(levels = c("1", "2")),
+                              sex = col_factor(levels = c("Female", "Male")),
+                              loc = col_factor(levels = c("Inner", "Outer")),
+                              backg = col_factor(levels = c("Light", "Dark")))) %>%
+  mutate(obsID = 1:nrow(.),  # observation level random effect
+         across(where(is.character), ~ as_factor(.x)))  
+```

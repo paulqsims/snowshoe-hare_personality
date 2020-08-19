@@ -1,0 +1,31 @@
+---
+title: "Analysis Summary for Lafferty et al. 2020"
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    keep_md: true
+  github_document:
+    toc: true
+    toc_depth: 3
+---
+
+```{r analy-sum-knitr-opts, include = FALSE, echo = FALSE}
+knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file(),
+                     eval = TRUE, echo = TRUE, message = FALSE,
+                     width = 500, warning = FALSE, cache = FALSE)
+knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
+                     eval = TRUE, echo = TRUE, message = FALSE,
+                     width = 500, warning = FALSE, cache = FALSE)
+```
+
+```{r analy-sum-rpt, child = 'analysis_repeatability.Rmd'}
+```
+
+```{r analy-sum-predict, child = 'analysis_predictbehav.Rmd'}
+```
+
+```{r analy-sum-figures, child = 'figures.Rmd'}
+```
