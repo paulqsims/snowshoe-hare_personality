@@ -7,10 +7,10 @@
 ```{r pred-behav-knitr-opts}
 knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file(),
                      eval = TRUE, echo = TRUE, message = FALSE,
-                     warning = FALSE)
+                     warning = FALSE, cache = TRUE)
 knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
                      eval = TRUE, echo = TRUE, message = FALSE,
-                     warning = FALSE)
+                     warning = FALSE, cache = TRUE)
 ```
 
 ## Setup
@@ -36,8 +36,7 @@ data_day <-
            col_types = list(exit_fast = col_factor(),
                             trial = col_factor(levels = c("1", "2")),
                             sex = col_factor(levels = c("Female", "Male")))) %>%
-  mutate(obsID = 1:nrow(.),  # observation level random effect
-         expl.y = cbind(uniq_tiles, tile_fails))  # cbind successes/fails
+  mutate(obsID = 1:nrow(.))  # observation level random effect
 
 # Data collected at time points throughout the day
 data_time <-
@@ -68,9 +67,9 @@ data_act <-
 
 ```{r pred-behav-expl-dat}
 data_expl <- 
-  remove_dat_na(data_day, c("expl.y", "trial",
-                            "sex", "ID", "day",
-                            "obsID"))
+  remove_dat_na(data_day, c("uniq_tiles", "tile_fails", "trial",
+                            "sex", "ID", "day", "obsID", "mass_sc")) %>%
+  mutate(expl.y = cbind(uniq_tiles, tile_fails))
 ```
 
 **Predictor interaction selection**
@@ -118,7 +117,7 @@ m_expl_means <-
   glmer(expl.y ~ trial + sex + mass_sc + (1|ID),
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),  # Change contrasts for sex and trial
         family = "binomial", 
-        data = data_day,
+        data = data_expl,
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -148,7 +147,7 @@ broom.mixed::tidy(m_expl_means,
 data_shelExit <- 
   remove_dat_na(data_day, c("exit_fast", "trial",
                             "sex", "ID", "day",
-                            "obsID"))
+                            "obsID", "mass_sc"))
 ```
 
 **Predictor interaction selection**
@@ -196,7 +195,7 @@ m_ExitLat_means <-
   glmer(exit_fast ~ trial + sex + mass_sc + (1|ID),
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),  # Change contrasts for sex and trial
         family = "binomial", 
-        data = data_shelExit_rpt,
+        data = data_shelExit,
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -260,28 +259,28 @@ m1_shel_LRT %>%
 m2_shel_tmp <- update(m1_shel_tmp, ~ . -sex:bkgrd)  # same as above
 m2_shel_LRT <- drop1(m2_shel_tmp, test = "Chi")  # same as above
 m2_shel_LRT %>%
-  rd_stepwise_out(.) %>%
+  rd_stepwise_out(., glm = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
 m3_shel_tmp <- update(m2_shel_tmp, ~ . -t_point_sc:bkgrd)  # same as above
 m3_shel_LRT <- drop1(m3_shel_tmp, test = "Chi")  # same as above
 m3_shel_LRT %>%
-  rd_stepwise_out(.) %>%
+  rd_stepwise_out(., glm = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
 m4_shel_tmp <- update(m3_shel_tmp, ~ . -t_point_sc:sex)  # same as above
 m4_shel_LRT <- drop1(m4_shel_tmp, test = "Chi")  # same as above
 m4_shel_LRT %>%
-  rd_stepwise_out(.) %>%
+  rd_stepwise_out(., glm = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
 m5_shel_tmp <- update(m4_shel_tmp, ~ . -sex:mass_sc)  # same as above
 m5_shel_LRT <- drop1(m5_shel_tmp, test = "Chi")  # same as above
 m5_shel_LRT %>%
-  rd_stepwise_out(.) %>%
+  rd_stepwise_out(., glm = TRUE) %>%
   knitr::kable(.)
 
 # Fit final model of predictors
@@ -318,7 +317,8 @@ m_shel_final_marg %>%
                           round(plogis(as.numeric(estimate)), digits = 3),
                           ")", sep = "")) %>%
   filter(term == "(Intercept)") %>%
-  select(-effect, `estimate odds ratio (probability)` = estimate)
+  select(-effect, `estimate odds ratio (probability)` = estimate) %>%
+  kable(., align = "l")
 ```
 
 #### Open-Field location preference
@@ -510,14 +510,12 @@ m_act_LRT <-
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   kable_title(.)
 
-print(m_act_LRT)
-
 # Remove largest non-significant p-value for interaction and update model and continue process
 m1_act_tmp <- update(m_act_base, ~ . -t_point_sc:backg)  # Remove most non-sig interactions
 m1_act_LRT <- drop1(m1_act_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  kable_title(.)
+  kable_title()
 
 # Same as above
 m2_act_tmp <- update(m1_act_tmp, ~ . -backg:loc)  # same as above

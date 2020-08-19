@@ -32,7 +32,7 @@ remove_dat_na <- function(data, variables) {
   # variables is a vector of strings of variable names you want to keep in the dataset
   data %>%
     select(all_of(variables)) %>%  # select which variables go into the data set
-    drop_na()  # remove NA values
+    drop_na(.)  # remove NA values
 } 
 
 # Mean centers and standardizes (1 SD) vector with NA value removal option

@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Repeatability analyses
 - Author: Paul Q. Sims
 - Contact: paul.q.sims@gmail.com
@@ -41,8 +36,8 @@ data_day <-
            col_types = list(exit_fast = col_factor(),
                             trial = col_factor(levels = c("1", "2")),
                             sex = col_factor(levels = c("Female", "Male")))) %>%
-  mutate(obsID = 1:nrow(.),  # observation level random effect
-         expl.y = cbind(uniq_tiles, tile_fails))  # cbind successes/fails
+  mutate(obsID = 1:nrow(.))  # observation level random effect
+
 
 # Data collected at time points throughout the day
 data_time <-
@@ -69,9 +64,9 @@ data_act <-
 
 ```{r rpt-expl-dat}
 data_expl_rpt <- 
-  remove_dat_na(data_day, c("expl.y", "trial",
-                            "sex", "ID", "day",
-                            "obsID"))
+  remove_dat_na(data_day, c("uniq_tiles", "tile_fails", "trial",
+                            "sex", "ID", "day", "obsID")) %>%
+  mutate(expl.y = cbind(uniq_tiles, tile_fails))
 ```
 
 
@@ -127,7 +122,7 @@ RptConfInt_day(res_boot)
 
 **Create data set with NA values removed**
 
-```{r shel-data}
+```{r shel-exit-data}
 data_shelExit_rpt <- 
   remove_dat_na(data_day, c("exit_fast", "trial",
                             "sex", "ID", "day",
