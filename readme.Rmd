@@ -8,15 +8,13 @@ output:
 
 ## Description
 
-- URL links TO BE UPDATED
-
 Data and code associated with the study "Repeatable differences in snowshoe hare behavior: animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
 
-This repository is permanently archived at Zenodo, with the latest release found here: [![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355). 
+This repository will be permanently archived at Zenodo, with the latest release to be found here: <!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
 
-A report summary containing all the R script output, including plots, can be found at [analysis-summary.md](https://github.com/paulqsims/inno_pop/blob/master/reports/analysis-summary.md) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
+A report summary containing all the R script output, including plots, can be found at [analysis-summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/analysis_summary.Rmd) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
 
-R Markdown files can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/inno_pop/blob/master/R/render-Rmd.R) in `R/`
+R Markdown files can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/render-Rmd.R) in `R/`
 
 **Last update**: `r Sys.Date()`
 
@@ -41,7 +39,7 @@ L. Scott Mills (<scott.mills@mso.umt.edu>)
 
 ```{r package names, echo=FALSE,warning=FALSE,eval=TRUE,message=FALSE}
 # Package dataframe
-dat_packages <- setNames(data.frame(matrix(ncol = 3, nrow = 12)),
+dat_packages <- setNames(data.frame(matrix(ncol = 3, nrow = 15)),
                         c("Package_Name", "Version", "Function"))
 # Package name
 dat_packages$Package_Name <- 
@@ -49,6 +47,7 @@ dat_packages$Package_Name <-
     "glmmTMB", "MuMIn", "lme4", "lmerTest", "DHARMa",
     "ggplot2", "ggsignif", "scales", "effects",
     "rprojroot", "rmarkdown", "knitr")
+
 # Package function
 dat_packages$Function <- 
   c(rep("Data clean up", times = 3), 
@@ -64,7 +63,11 @@ knitr::kable(dat_packages)
 
 ## Metadata
 
-Reference file: [data_Sims-Reader_2020.csv](https://github.com/paulqsims/inno_pop/blob/master/data/data_Sims-Reader_2020.csv)
+Reference files: 
+
+- [data_activity_LaffertyEtAl_2020.csv](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/data/data_activity_LaffertyEtAl_2020.csv)
+- [data_day_LaffertyEtAl_2020.csv](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/data/data_day_LaffertyEtAl_2020.csv)
+- [data_time_LaffertyEtAl_2020.csv](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/data/data_time_LaffertyEtAl_2020.csv)
 
 ```{r, echo = FALSE, results = TRUE, message = FALSE}
 
@@ -110,7 +113,7 @@ var_descrip <- c(
   "Number of unique tiles hare did not enter out of the total")
 
 var_metadata <- tibble(var_names,var_descrip) %>%
-                  rename(Column = "var_names", Description = "var_descrip")
+                  rename(Column = "value", Description = "var_descrip")
 
 knitr::kable(var_metadata)
 ```
@@ -119,9 +122,7 @@ knitr::kable(var_metadata)
 
 ## Licenses
 
-- REPLACE URL FOR LICENSE MD
-
-Software and code is licensed under the MIT License, data is licensed under CC0, and media files are under CC-BY-4.0 - see the [license.md](https://github.com/paulqsims/inno_pop/blob/master/license.md) file for details.
+Software and code is licensed under the MIT License, data is licensed under CC0, and media files are under CC-BY-4.0 - see the [license.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/license.md) file for details.
 
 ## Funding information
 
