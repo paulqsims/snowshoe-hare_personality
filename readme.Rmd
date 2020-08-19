@@ -1,0 +1,129 @@
+---
+title: "readme"
+#author: "Paul Q. Sims"
+#date: "7/13/2020"
+output: 
+  github_document
+---
+
+## Description
+
+- URL links TO BE UPDATED
+
+Data and code associated with the study "Repeatable differences in snowshoe hare behavior: animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
+
+This repository is permanently archived at Zenodo, with the latest release found here: [![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355). 
+
+A report summary containing all the R script output, including plots, can be found at [analysis-summary.md](https://github.com/paulqsims/inno_pop/blob/master/reports/analysis-summary.md) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
+
+R Markdown files can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/inno_pop/blob/master/R/render-Rmd.R) in `R/`
+
+**Last update**: `r Sys.Date()`
+
+## Authors
+
+Diana J.R. Lafferty (<dlaffert@nmu.edu>)
+
+Paul Q. Sims (<paul.q.sims@gmail.com>)
+
+L. Scott Mills (<scott.mills@mso.umt.edu>)
+
+## Directory structure
+
+* `data/` Data sets used in the analyses
+* `R/` Self-contained R markdown (*.Rmd) scripts (can be run on their own) and custom functions used for modifying the data, running analyses, and generating plots
+* `figs/` High quality figures generated for publication
+* `reports/` Markdown and html summaries of code output
+
+## Prerequisites: R version and R packages
+
+`r R.Version()$version.string`
+
+```{r package names, echo=FALSE,warning=FALSE,eval=TRUE,message=FALSE}
+# Package dataframe
+dat_packages <- setNames(data.frame(matrix(ncol = 3, nrow = 12)),
+                        c("Package_Name", "Version", "Function"))
+# Package name
+dat_packages$Package_Name <- 
+  c("tidyverse", "broom.mixed", "broom",
+    "glmmTMB", "MuMIn", "lme4", "lmerTest", "DHARMa",
+    "ggplot2", "ggsignif", "scales", "effects",
+    "rprojroot", "rmarkdown", "knitr")
+# Package function
+dat_packages$Function <- 
+  c(rep("Data clean up", times = 3), 
+    rep("Analyses", time = 5),
+    rep("Plots", times = 4),
+    rep("Miscellaneous", times = 3))
+# Package version
+for (i in 1:nrow(dat_packages)) {
+   dat_packages$Version[i] <- as.character(packageVersion(dat_packages$Package_Name[i]))
+}
+knitr::kable(dat_packages)
+```
+
+## Metadata
+
+Reference file: [data_Sims-Reader_2020.csv](https://github.com/paulqsims/inno_pop/blob/master/data/data_Sims-Reader_2020.csv)
+
+```{r, echo = FALSE, results = TRUE, message = FALSE}
+
+library(tidyverse)
+
+var_names_act <- 
+  read_csv("data/data_activity_LaffertyEtAl_2020.csv") %>%
+  names(.)
+var_names_time <- 
+  read_csv("data/data_time_LaffertyEtAl_2020.csv") %>%
+  names(.)
+var_names_day <- 
+  read_csv("data/data_day_LaffertyEtAl_2020.csv") %>%
+  names(.)
+
+# Write out descriptions associated with each column header
+var_names <- 
+  c(var_names_act, var_names_time, var_names_day) %>%
+  as_tibble(.) %>%
+  distinct(.) 
+
+var_descrip <- c(
+  "Individual ID",
+  "Trial: 1 or 2",
+  "Date of measurement",
+  "Time point: 1-23",
+  "Background color for activity data: Light or dark",
+  "Open-Field location for activity data: Inner or outer",
+  "Lines crossed",
+  "Time spent in the shelter",
+  "Sex: Female or male",
+  "Mass in g",
+  "Mass scaled by 1 standard deviation and mean centered",
+  "ID for each individual by trial",
+  "Time point scaled by 1 standard deviation and mean centered",
+  "Background color for non-activity data: Light or dark",
+  "Open-Field location for non-activity data: Inner or outer",
+  "Shelter status: Inside or outside",
+  "Time (s) to exit the shelter",
+  "Whether or not hares exited the shelter immediately upon release: Yes or no",
+  "Number of unique tiles entered over the course of the day",
+  "Total number of unique tiles available in the open-field",
+  "Number of unique tiles hare did not enter out of the total")
+
+var_metadata <- tibble(var_names,var_descrip) %>%
+                  rename(Column = "var_names", Description = "var_descrip")
+
+knitr::kable(var_metadata)
+```
+
+- Missing values are input as `NA` text
+
+## Licenses
+
+- REPLACE URL FOR LICENSE MD
+
+Software and code is licensed under the MIT License, data is licensed under CC0, and media files are under CC-BY-4.0 - see the [license.md](https://github.com/paulqsims/inno_pop/blob/master/license.md) file for details.
+
+## Funding information
+
+This work was supported by North Carolina State University, University of Montana, and the National Science Foundation Division of Environmental Biology (grant #1354449 to L.S.M.).
+
