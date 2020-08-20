@@ -224,6 +224,8 @@ kable(as_tibble_col(attr(VarCorr(m_shel_full)$ID,"correlation")[2,1],
       align = "l")
 ```
 
+- Boundary fit due to overly complex random effect structure, resulting in individual id estimated as zero and random intercept-slope correlation as NaN
+
 **Test significance of time slope (t_point_sc)**
 
 ```{r shel-time}
@@ -643,7 +645,7 @@ rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
 
 **Final random effect model structure**
 
-- Removed trial series intercept and time slope correlation due to model convergence errors during bootstrapping
+- Removed  intercept and time slope correlations for trial series and individual ID due to model convergence errors during bootstrapping
 
 ```{r bkgrd-final-rpt-mod}
 # Refit without random effect covariances due to singular fits
@@ -805,6 +807,11 @@ m_act_reduc <- refitModelRanEf(m_act_base,
 
 # LRT for significance act intercept-slope correlation
 rpt_SigTest(m_act_full, m_act_reduc)
+
+# print significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
+              column_name = "Random intercept-slope variance estimate"),
+      align = "l")
 ```
 
 **Test significance of (reaction norm) time slope**
