@@ -18,7 +18,6 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 ```{r rpt-setup, cache=FALSE}
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
-library(rptR)  # for repeatability analyses
 library(lme4)
 library(lmerTest)
 library(DHARMa)
@@ -198,11 +197,17 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
 
 # LRT for significance of individual ID
 rpt_SigTest(m_shel_base, m_shel_reduc)
+
+# Non-significant random intercept variance estimate
+kable(as_tibble_col(VarCorr(m_shel_base)$ID[1],
+      column_name = "Random intercept variance estimate"),
+      digits = 2,
+      align = "l")
 ```
 
 **Test significance of individual intercept and time slope correlation (t_point_sc|ID)**
 
-- Run before testing random slope beccause result of slope intercept will determine which slope model to use
+- Run before testing random slope because result of slope intercept will determine which slope model to use
 
 ```{r shel-ID-time-corr}
 # Fit model with intercept-slope correlation
@@ -220,7 +225,8 @@ rpt_SigTest(m_shel_full, m_shel_reduc)
 
 # print non-significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_shel_full)$ID,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -240,6 +246,12 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
 
 # LRT for significance of random slope 
 rpt_SigTest(m_shel_full, m_shel_reduc)
+
+# Non-significant random slope variance estimate
+kable(as_tibble_col(VarCorr(m_shel_full)$ID.1[1],
+      column_name = "Random slope variance estimate"),
+      digits = 2,
+      align = "l")
 ```
 
 **Test significance of (reaction norm) trial series intercept**
@@ -303,9 +315,6 @@ m_shel_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_shel_rpt_final))),
-              column_name = "Final formula"))
 ```
 
 #### Variance estimates
@@ -393,6 +402,12 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
 
 # LRT for significance of intercept-slope correlation
 rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+
+# print non-significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_OFloc_full)$ID,"correlation")[2,1],
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
+      align = "l")
 ```
 
 **Test significance of time slope (t_point_sc)**
@@ -412,7 +427,8 @@ rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
 
 # Non-significant random slope variance estimate
 kable(as_tibble_col(VarCorr(m_OFloc_full)$ID.1[1],
-              column_name = "Random slope variance estimate"),
+      column_name = "Random slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -477,9 +493,6 @@ m_OFloc_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_OFloc_rpt_final))),
-              column_name = "Final formula"))
 ```
 
 #### Variance and repeatability estimates
@@ -568,9 +581,10 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
 # LRT for significance bkgrd intercept-slope correlation
 rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
 
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$ID,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2, 
       align = "l")
 ```
 
@@ -622,9 +636,10 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
 # LRT for significance bkgrd intercept-slope correlation
 rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
 
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$trial_series,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -657,9 +672,6 @@ m_bkgrd_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_bkgrd_rpt_final))),
-              column_name = "Final formula"))
 ```
 
 ### Variance and repeatability estimates
@@ -749,9 +761,10 @@ m_act_reduc <- refitModelRanEf(m_act_base,
 # LRT for significance act intercept-slope correlation
 rpt_SigTest(m_act_full, m_act_reduc)
 
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -760,7 +773,7 @@ kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
 ```{r act-time}
 # Fit model with random slope
 m_act_full <- refitModelRanEf(m_act_base,
-                                 "(0 + t_point_sc|ID) + (1|ID) +
+                                 "(t_point_sc|ID) + 
                                   (t_point_sc|trial_series)") 
 
 # Fit model without random slope
@@ -771,8 +784,9 @@ m_act_reduc <- refitModelRanEf(m_act_base,
 rpt_SigTest(m_act_full, m_act_reduc)
 
 # print non-significant random slope
-kable(as_tibble_col(VarCorr(m_act_full)$cond$ID,
-              column_name = "Random slope variance estimate"),
+kable(as_tibble_col(VarCorr(m_act_full)$cond$ID[2,2],
+      column_name = "Random slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -810,7 +824,8 @@ rpt_SigTest(m_act_full, m_act_reduc)
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -841,9 +856,6 @@ m_act_rpt_final <-
           contrasts = list(trial = c(-1,1), sex = c(-1,1)),
           ziformula= ~ 1,
           family="nbinom2")
-
-kable(as_tibble_col(as.character(c(formula(m_act_rpt_final))),
-              column_name = "Final formula"))
 ```
 
 ### Variance and repeatability estimates
