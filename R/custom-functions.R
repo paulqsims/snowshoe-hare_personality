@@ -44,6 +44,21 @@ na_rm_scale <- function(x, na.rm = FALSE) {
   (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)
 }
 
+# Mean centers and standardizes (1 SD) vector for time point variable
+# 
+# - Must use this custom function so scaling is the same for hares with missing
+#     values at certain time points so the scaling value is the same, otherwise
+#     the mean and sd for each individual differs based on how many NAs time 
+#     points they have
+# - This is OK because time is FIXED, i.e. all hares have the same time point,
+#     so there is no variability in X, just in missing values, so they should all
+#     have the same scale. This would not be ok for something like weight, 
+#     which can vary between individuals. 
+
+time_scale <- function(x) {
+  (x - mean(1:23)) / sd(1:23)
+}
+
 #### Rounding functions ####
 
 # Rounds a vector of p-values
