@@ -509,43 +509,45 @@ m_act_LRT <-
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   kable_title(.)
 
+m_act_LRT
+
 # Remove largest non-significant p-value for interaction and update model and continue process
-m1_act_tmp <- update(m_act_base, ~ . -t_point_sc:backg)  # Remove most non-sig interactions
+m1_act_tmp <- update(m_act_base, ~ . -backg:loc)  # Remove most non-sig interactions
 m1_act_LRT <- drop1(m1_act_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  kable_title()
+  kable_title(.)
 
 # Same as above
-m2_act_tmp <- update(m1_act_tmp, ~ . -backg:loc)  # same as above
+m2_act_tmp <- update(m1_act_tmp, ~ . -t_point_sc:backg)  # same as above
 m2_act_LRT <- drop1(m2_act_tmp, test = "Chi")  # same as above
 m2_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
-m3_act_tmp <- update(m2_act_tmp, ~ . -t_point_sc:sex)  # same as above
+m3_act_tmp <- update(m2_act_tmp, ~ . -t_point_sc:trial)  # same as above
 m3_act_LRT <- drop1(m3_act_tmp, test = "Chi")  # same as above
 m3_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
-m4_act_tmp <- update(m3_act_tmp, ~ . -t_point_sc:loc)  # same as above
+m4_act_tmp <- update(m3_act_tmp, ~ . -t_point_sc:sex)  # same as above
 m4_act_LRT <- drop1(m4_act_tmp, test = "Chi")  # same as above
 m4_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
-m5_act_tmp <- update(m4_act_tmp, ~ . -t_point_sc:trial)  # same as above
+m5_act_tmp <- update(m4_act_tmp, ~ . -sex:backg)  # same as above
 m5_act_LRT <- drop1(m5_act_tmp, test = "Chi")  # same as above
 m5_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 
 # Same as above
-m6_act_tmp <- update(m5_act_tmp, ~ . -sex:backg)  # same as above
+m6_act_tmp <- update(m5_act_tmp, ~ . -t_point_sc:loc)  # same as above
 m6_act_LRT <- drop1(m6_act_tmp, test = "Chi")  # same as above
 m6_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
