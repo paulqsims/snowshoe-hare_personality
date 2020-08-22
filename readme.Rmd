@@ -8,13 +8,13 @@ output:
 
 ## Description
 
-Data and code associated with the study "Repeatable differences in snowshoe hare behavior: Animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
+Data, code, and figures associated with the study "Repeatable differences in snowshoe hare behavior: Animal personality may facilitate adaption to climate change". *In prep*. Please see the publication for further details on data collection, the experimental apparatus, procedure, and statistical analyses.
 
-This repository will be permanently archived at Zenodo, with the latest release to be found here: <!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
+This repository will be permanently archived at Zenodo (link to be provided), with the latest release to be found here: <!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
 
 A report summary containing all the R script output, including plots, can be found at [analysis_summary.md](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/reports/analysis_summary.md) in `reports/`. Markdown file versions (.md) are recommended for viewing on github and HMTL file versions (.html) are recommended for desktop viewing.
 
-R Markdown files can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/render-Rmd.R) in `R/`
+R Markdown files for the readme and summary report can be rendered by sourcing [render-Rmd.R](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/render-Rmd.R) in `R/`. Individual .Rmd files for each section of the analysis can be rendered using the provided code in the `render-Rmd.R` file or by knitting each .Rmd file independently.
 
 **Last update**: `r Sys.Date()`
 
