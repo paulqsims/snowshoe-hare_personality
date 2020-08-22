@@ -104,7 +104,7 @@ res_boot <- bootMer(m_AdjRpt_expl,  # final rpt model
                     use.u = FALSE,  
                     FUN = rpt_day,  # custom rpt function
                     seed = 1,  # allows exact replication of results
-                    nsim = 10,
+                    nsim = 1000,
                     type = "parametric",
                     parallel = "multicore",
                     .progress = "txt")
@@ -329,7 +329,7 @@ res_bootOut <-
           use.u = FALSE,
           FUN = varEst_shel,  # custom variance estimates function
           seed = 1,
-          nsim = 10,
+          nsim = 1000,
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
@@ -504,7 +504,7 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_OF,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
@@ -683,7 +683,7 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_bkgrd,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
@@ -867,7 +867,7 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_act,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
