@@ -312,4 +312,6 @@ p <- ggplot(data = dat_of_pred_pop,
                                              size = 1)) 
 
 print(p)
+
+x<-1:10
 ```
