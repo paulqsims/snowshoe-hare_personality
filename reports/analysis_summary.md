@@ -29,6 +29,14 @@ Analysis Summary for Lafferty et al. 2020
           - [Activity](#activity-1)
   - [Figures](#figures)
       - [Setup](#setup-2)
+      - [Figure 2: Activity during the
+        day](#figure-2-activity-during-the-day)
+      - [Figure 3: Open-Field location preference during the day, by
+        background
+        color](#figure-3-open-field-location-preference-during-the-day-by-background-color)
+      - [Figure 4: Open-Field location preference, background color and
+        sex
+        interaction](#figure-4-open-field-location-preference-background-color-and-sex-interaction)
 
 # Repeatability analyses
 
@@ -54,12 +62,10 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 ``` r
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
-library(rptR)  # for repeatability analyses
-library(lme4)
-library(lmerTest)
-library(DHARMa)
+library(lme4)  # glmer models
+library(lmerTest)  # glmer models
 library(broom.mixed)  # for tidying model output
-library(knitr)
+library(knitr)  # tidying output
 library(glmmTMB)  # for activity analyses
 
 # Load personalized functions
@@ -147,13 +153,13 @@ res_boot <- bootMer(m_AdjRpt_expl,  # final rpt model
                     use.u = FALSE,  
                     FUN = rpt_day,  # custom rpt function
                     seed = 1,  # allows exact replication of results
-                    nsim = 10,
+                    nsim = 1000,
                     type = "parametric",
                     parallel = "multicore",
                     .progress = "txt")
 ```
 
-    ## ====================================================================================================================
+    ## ================================================================================================
 
 ``` r
 # Calculate 95% CI
@@ -162,9 +168,9 @@ RptConfInt_day(res_boot)
 
 | Variable             | Estimate | Lower95CI | Upper95CI |
 | :------------------- | :------- | :-------- | :-------- |
-| Individual Intercept | 0.17     | 0.02      | 0.16      |
-| Residual             | 4.07     | 4.01      | 4.21      |
-| Repeatability        | 0.04     | 0.01      | 0.04      |
+| Individual Intercept | 0.17     | 0.02      | 0.36      |
+| Residual             | 4.07     | 4.00      | 4.24      |
+| Repeatability        | 0.04     | 0.00      | 0.08      |
 
 Variance and repeatability estimates ± 95% CI
 
@@ -276,10 +282,22 @@ rpt_SigTest(m_shel_base, m_shel_reduc)
 
 Likelihood ratio test for significance of random effect
 
+``` r
+# Non-significant random intercept variance estimate
+kable(as_tibble_col(VarCorr(m_shel_base)$ID[1],
+      column_name = "Random intercept variance estimate"),
+      digits = 2,
+      align = "l")
+```
+
+| Random intercept variance estimate |
+| :--------------------------------- |
+| 0.19                               |
+
 **Test significance of individual intercept and time slope correlation
 (t\_point\_sc|ID)**
 
-  - Run before testing random slope beccause result of slope intercept
+  - Run before testing random slope because result of slope intercept
     will determine which slope model to use
 
 <!-- end list -->
@@ -309,13 +327,18 @@ Likelihood ratio test for significance of random effect
 ``` r
 # print non-significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_shel_full)$ID,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
 | Random intercept-slope variance estimate |
 | :--------------------------------------- |
 | NaN                                      |
+
+  - Boundary fit due to overly complex random effect structure,
+    resulting in individual id estimated as zero and random
+    intercept-slope correlation as NaN
 
 **Test significance of time slope (t\_point\_sc)**
 
@@ -339,6 +362,18 @@ rpt_SigTest(m_shel_full, m_shel_reduc)
 | 11   | 405.73 | 458.49 | \-191.86 | 383.73   | 0.13  | 1  | 0.36     |
 
 Likelihood ratio test for significance of random effect
+
+``` r
+# Non-significant random slope variance estimate
+kable(as_tibble_col(VarCorr(m_shel_full)$ID.1[1],
+      column_name = "Random slope variance estimate"),
+      digits = 2,
+      align = "l")
+```
+
+| Random slope variance estimate |
+| :----------------------------- |
+| 0.52                           |
 
 **Test significance of (reaction norm) trial series intercept**
 
@@ -429,14 +464,7 @@ m_shel_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_shel_rpt_final))),
-              column_name = "Final formula"))
 ```
-
-| Final formula                                                                                     |
-| :------------------------------------------------------------------------------------------------ |
-| shelter \~ t\_point\_sc \* trial + sex + (0 + t\_point\_sc | trial\_series) + (1 | trial\_series) |
 
 #### Variance estimates
 
@@ -454,13 +482,13 @@ res_bootOut <-
           use.u = FALSE,
           FUN = varEst_shel,  # custom variance estimates function
           seed = 1,
-          nsim = 10,
+          nsim = 1000,
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
 ```
 
-    ## ====================================================================================================================
+    ## ================================================================================================
 
 ``` r
 # Compile variance estimates 
@@ -479,11 +507,11 @@ res_varEst <-
 kable(res_varEst)
 ```
 
-| Variable         |  Estimate | Lower95CI |   Upper95CI |
-| :--------------- | --------: | --------: | ----------: |
-| Series Intercept |      6.40 |      3.89 | 1.69700e+01 |
-| Series Slope     |     17.24 |      9.39 | 3.05300e+01 |
-| Residual         | 109445.31 |     14.50 | 1.05822e+11 |
+| Variable         |  Estimate | Lower95CI | Upper95CI |
+| :--------------- | --------: | --------: | --------: |
+| Series Intercept |      6.40 |      2.59 |     24.58 |
+| Series Slope     |     17.24 |      6.45 |     59.09 |
+| Residual         | 109445.31 |      4.39 |       Inf |
 
 ### Open-Field location preference
 
@@ -557,6 +585,18 @@ rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
 
 Likelihood ratio test for significance of random effect
 
+``` r
+# print non-significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_OFloc_full)$ID,"correlation")[2,1],
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
+      align = "l")
+```
+
+| Random intercept-slope variance estimate |
+| :--------------------------------------- |
+| 1                                        |
+
 **Test significance of time slope (t\_point\_sc)**
 
 ``` r
@@ -583,7 +623,8 @@ Likelihood ratio test for significance of random effect
 ``` r
 # Non-significant random slope variance estimate
 kable(as_tibble_col(VarCorr(m_OFloc_full)$ID.1[1],
-              column_name = "Random slope variance estimate"),
+      column_name = "Random slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -680,14 +721,7 @@ m_OFloc_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_OFloc_rpt_final))),
-              column_name = "Final formula"))
 ```
-
-| Final formula                                                                                                |
-| :----------------------------------------------------------------------------------------------------------- |
-| of\_loc \~ t\_point\_sc \* trial + sex + (1 | ID) + (0 + t\_point\_sc | trial\_series) + (1 | trial\_series) |
 
 #### Variance and repeatability estimates
 
@@ -698,13 +732,13 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_OF,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
 ```
 
-    ## ====================================================================================================================
+    ## ================================================================================================
 
 ``` r
 # Compile variance and repeatability estimates 
@@ -728,12 +762,12 @@ kable(res_varEst)
 
 | Variable                              | Estimate | Lower95CI | Upper95CI |
 | :------------------------------------ | -------: | --------: | --------: |
-| Individual Intercept                  |     1.24 |      0.07 |      2.26 |
-| Series Intercept                      |     0.86 |      0.34 |      1.35 |
-| Series Slope                          |     0.43 |      0.22 |      0.67 |
-| Residual                              |     4.75 |      4.54 |      5.23 |
-| Reaction Norm Intercept Repeatability |     0.59 |      0.07 |      0.86 |
-| Long-term Repeatability               |     0.17 |      0.01 |      0.30 |
+| Individual Intercept                  |     1.24 |      0.07 |      2.51 |
+| Series Intercept                      |     0.86 |      0.19 |      1.72 |
+| Series Slope                          |     0.43 |      0.07 |      0.78 |
+| Residual                              |     4.75 |      4.21 |      5.97 |
+| Reaction Norm Intercept Repeatability |     0.59 |      0.05 |      0.91 |
+| Long-term Repeatability               |     0.17 |      0.01 |      0.31 |
 
 ## Background preference
 
@@ -808,15 +842,16 @@ rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
 Likelihood ratio test for significance of random effect
 
 ``` r
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$ID,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2, 
       align = "l")
 ```
 
 | Random intercept-slope variance estimate |
 | :--------------------------------------- |
-| 0.8791246                                |
+| 0.88                                     |
 
 **Test significance of time slope (t\_point\_sc)**
 
@@ -893,9 +928,10 @@ rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
 Likelihood ratio test for significance of random effect
 
 ``` r
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$trial_series,"correlation")[2,1],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
@@ -927,8 +963,8 @@ Likelihood ratio test for significance of random effect
 
 **Final random effect model structure**
 
-  - Removed trial series intercept and time slope correlation due to
-    model convergence errors during bootstrapping
+  - Removed intercept and time slope correlations for trial series and
+    individual ID due to model convergence errors during bootstrapping
 
 <!-- end list -->
 
@@ -942,14 +978,7 @@ m_bkgrd_rpt_final <-
         contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
-
-kable(as_tibble_col(as.character(c(formula(m_bkgrd_rpt_final))),
-              column_name = "Final formula"))
 ```
-
-| Final formula                                                                                                                        |
-| :----------------------------------------------------------------------------------------------------------------------------------- |
-| bkgrd \~ t\_point\_sc \* trial + sex + (0 + t\_point\_sc | ID) + (1 | ID) + (0 + t\_point\_sc | trial\_series) + (1 | trial\_series) |
 
 ### Variance and repeatability estimates
 
@@ -960,13 +989,13 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_bkgrd,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
 ```
 
-    ## ====================================================================================================================
+    ## ================================================================================================
 
 ``` r
 # Compile variance and repeatability estimates 
@@ -992,14 +1021,14 @@ kable(res_varEst)
 
 | Variable                              | Estimate | Lower95CI | Upper95CI |
 | :------------------------------------ | -------: | --------: | --------: |
-| Individual Intercept                  |     3.55 |      1.77 |      7.57 |
-| Individual Slope                      |     0.80 |      0.29 |      2.82 |
-| Series Intercept                      |     1.15 |      0.70 |      1.38 |
-| Series Slope                          |     0.79 |      0.17 |      1.45 |
-| Residual                              |     4.46 |      4.01 |      5.37 |
-| Reaction Norm Intercept Repeatability |     0.75 |      0.62 |      0.86 |
-| Reaction Norm Slope Repeatability     |     0.50 |      0.25 |      0.91 |
-| Long-term Repeatability               |     0.33 |      0.18 |      0.53 |
+| Individual Intercept                  |     3.55 |      0.80 |      7.23 |
+| Individual Slope                      |     0.80 |      0.00 |      2.18 |
+| Series Intercept                      |     1.15 |      0.18 |      2.44 |
+| Series Slope                          |     0.79 |      0.00 |      1.67 |
+| Residual                              |     4.46 |      4.02 |      5.78 |
+| Reaction Norm Intercept Repeatability |     0.75 |      0.36 |      0.96 |
+| Reaction Norm Slope Repeatability     |     0.50 |      0.00 |      1.00 |
+| Long-term Repeatability               |     0.33 |      0.09 |      0.52 |
 
 ## Activity
 
@@ -1073,22 +1102,23 @@ rpt_SigTest(m_act_full, m_act_reduc)
 Likelihood ratio test for significance of random effect
 
 ``` r
-# print non-significant intercept-slope correlation
+# print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
-              column_name = "Random intercept-slope variance estimate"),
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
 | Random intercept-slope variance estimate |
 | :--------------------------------------- |
-| 0.9999215                                |
+| 1                                        |
 
 **Test significance of time slope (t\_point\_sc)**
 
 ``` r
 # Fit model with random slope
 m_act_full <- refitModelRanEf(m_act_base,
-                                 "(0 + t_point_sc|ID) + (1|ID) +
+                                 "(t_point_sc|ID) + 
                                   (t_point_sc|trial_series)") 
 
 # Fit model without random slope
@@ -1102,20 +1132,21 @@ rpt_SigTest(m_act_full, m_act_reduc)
 | Df | AIC     | BIC     | logLik    | deviance | Chisq | Chi Df | p\_value |
 | :- | :------ | :------ | :-------- | :------- | :---- | :----- | :------- |
 | 11 | 6547.79 | 6611.53 | \-3262.89 | 6525.79  | NA    | NA     | NA       |
-| 12 | 6549.79 | 6619.32 | \-3262.89 | 6525.79  | 0     | 1      | 0.5      |
+| 13 | 6551.08 | 6626.41 | \-3262.54 | 6525.08  | 0.71  | 2      | 0.35     |
 
 Likelihood ratio test for significance of random effect
 
 ``` r
 # print non-significant random slope
-kable(as_tibble_col(VarCorr(m_act_full)$cond$ID,
-              column_name = "Random slope variance estimate"),
+kable(as_tibble_col(VarCorr(m_act_full)$cond$ID[2,2],
+      column_name = "Random slope variance estimate"),
+      digits = 2,
       align = "l")
 ```
 
 | Random slope variance estimate |
 | :----------------------------- |
-| 3.10617e-07                    |
+| 0.06                           |
 
 **Test significance of (reaction norm) trial series intercept**
 
@@ -1168,6 +1199,18 @@ rpt_SigTest(m_act_full, m_act_reduc)
 
 Likelihood ratio test for significance of random effect
 
+``` r
+# print significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$trial_series,"correlation")[1,2],
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
+      align = "l")
+```
+
+| Random intercept-slope variance estimate |
+| :--------------------------------------- |
+| 0.94                                     |
+
 **Test significance of (reaction norm) time slope**
 
 ``` r
@@ -1205,14 +1248,7 @@ m_act_rpt_final <-
           contrasts = list(trial = c(-1,1), sex = c(-1,1)),
           ziformula= ~ 1,
           family="nbinom2")
-
-kable(as_tibble_col(as.character(c(formula(m_act_rpt_final))),
-              column_name = "Final formula"))
 ```
-
-| Final formula                                                                                                    |
-| :--------------------------------------------------------------------------------------------------------------- |
-| line\_cross \~ t\_point\_sc \* trial + sex + (1 | ID) + (0 + t\_point\_sc | trial\_series) + (1 | trial\_series) |
 
 ### Variance and repeatability estimates
 
@@ -1223,13 +1259,13 @@ res_bootOut <-
           use.u = FALSE, 
           FUN = varEst_act,  # custom variance estimates function
           seed = 1,
-          nsim = 10,  
+          nsim = 1000,  
           type = "parametric",
           parallel = "multicore",
           .progress = "txt")
 ```
 
-    ## ====================================================================================================================
+    ## ================================================================================================
 
 ``` r
 # Compile variance and repeatability estimates 
@@ -1253,12 +1289,12 @@ kable(res_varEst)
 
 | Variable                              | Estimate | Lower95CI | Upper95CI |
 | :------------------------------------ | -------: | --------: | --------: |
-| Individual Intercept                  |     4.30 |      2.75 |      6.06 |
-| Series Intercept                      |     0.80 |      0.23 |      0.63 |
-| Series Slope                          |     1.38 |      0.71 |      1.74 |
-| Residual                              |     4.36 |      3.03 |      6.85 |
-| Reaction Norm Intercept Repeatability |     0.84 |      0.85 |      0.96 |
-| Long-term Repeatability               |     0.40 |      0.34 |      0.51 |
+| Individual Intercept                  |     4.30 |      1.44 |      7.22 |
+| Series Intercept                      |     0.80 |      0.16 |      1.49 |
+| Series Slope                          |     1.38 |      0.59 |      2.05 |
+| Residual                              |     4.36 |      2.91 |      6.85 |
+| Reaction Norm Intercept Repeatability |     0.84 |      0.59 |      0.97 |
+| Long-term Repeatability               |     0.40 |      0.17 |      0.56 |
 
 # Analyses: Predictors of behavior
 
@@ -1346,7 +1382,7 @@ m_expl_full <-
   glmer(expl.y ~ trial + sex * mass_sc + (1|ID),
         family = "binomial", 
         data = data_expl,
-        contrasts = list(trial = c(-1,1)),
+        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -1381,9 +1417,9 @@ broom.mixed::tidy(m_expl_final,
 
 | term        | estimate (exp) | std.error | statistic | p.value |
 | :---------- | :------------- | :-------- | :-------- | :------ |
-| (Intercept) | \-0.51 (0.6)   | 0.16      | \-3.14    | 0.002   |
+| (Intercept) | \-0.29 (0.75)  | 0.11      | \-2.66    | 0.008   |
 | trial1      | \-0.11 (0.89)  | 0.07      | \-1.63    | 0.1     |
-| sexMale     | 0.44 (1.55)    | 0.24      | 1.85      | 0.064   |
+| sex1        | 0.22 (1.24)    | 0.12      | 1.85      | 0.064   |
 | mass\_sc    | 0.2 (1.23)     | 0.12      | 1.7       | 0.088   |
 
 Predictors of area explored
@@ -1455,7 +1491,7 @@ m_ExitLat_full <-
   glmer(exit_fast ~ trial + sex * mass_sc + (1|ID),
         family = "binomial", 
         data = data_shelExit,
-        contrasts = list(trial = c(-1,1)),
+        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -1490,9 +1526,9 @@ broom.mixed::tidy(m_ExitLat_final,
 
 | term        | estimate (exp) | std.error | statistic | p.value |
 | :---------- | :------------- | :-------- | :-------- | :------ |
-| (Intercept) | 1.6 (4.93)     | 0.97      | 1.65      | 0.1     |
+| (Intercept) | 0.46 (1.58)    | 0.55      | 0.84      | 0.4     |
 | trial1      | 0.78 (2.18)    | 0.49      | 1.58      | 0.11    |
-| sexMale     | \-2.27 (0.1)   | 1.4       | \-1.62    | 0.11    |
+| sex1        | \-1.14 (0.32)  | 0.7       | \-1.62    | 0.11    |
 | mass\_sc    | \-0.95 (0.39)  | 0.7       | \-1.36    | 0.17    |
 
 Predictors of shelter exit latency
@@ -1567,7 +1603,7 @@ m_shel_base <-
           (t_point_sc|trial_series),  
         data = data_shel,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -1692,12 +1728,12 @@ broom.mixed::tidy(m_shel_final,
 
 | term         | estimate (odds ratio) | std.error | statistic | p.value |
 | :----------- | :-------------------- | :-------- | :-------- | :------ |
-| (Intercept)  | \-5.31 (\<0.01)       | 1.21      | \-4.38    | \<0.001 |
+| (Intercept)  | \-5.43 (\<0.01)       | 1.15      | \-4.74    | \<0.001 |
 | t\_point\_sc | \-0.45 (0.64)         | 0.72      | \-0.63    | 0.53    |
 | trial1       | \-0.2 (0.82)          | 0.5       | \-0.4     | 0.69    |
 | sex1         | \-1.13 (0.32)         | 0.59      | \-1.92    | 0.054   |
 | mass\_sc     | \-0.78 (0.46)         | 0.59      | \-1.32    | 0.19    |
-| bkgrdDark    | \-0.25 (0.78)         | 0.49      | \-0.5     | 0.62    |
+| bkgrd1       | \-0.12 (0.88)         | 0.25      | \-0.5     | 0.62    |
 
 Predictors of shelter preference
 
@@ -1761,8 +1797,7 @@ m_OF_base <-
           (1|ID) + (t_point_sc|trial_series),  
         data = data_OF,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1),
-                         bkgrd = c(-1,1)),
+        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -2041,28 +2076,44 @@ m_act_LRT <-
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   kable_title(.)
 
+m_act_LRT
+```
+
+| Variable           | Df | AIC     | LRT    | p.value |
+| :----------------- | :- | :------ | :----- | :------ |
+| <none>             | NA | 6463.6  | NA     | NA      |
+| t\_point\_sc:trial | 1  | 6462.01 | 0.41   | 0.52    |
+| sex:mass\_sc       | 1  | 6462.06 | 0.46   | 0.5     |
+| t\_point\_sc:sex   | 1  | 6461.77 | 0.17   | 0.68    |
+| sex:backg          | 1  | 6462    | 0.4    | 0.53    |
+| sex:loc            | 1  | 6468.94 | 7.34   | 0.007   |
+| t\_point\_sc:backg | 1  | 6461.6  | \<0.01 | 0.99    |
+| backg:loc          | 1  | 6461.62 | 0.02   | 0.89    |
+| t\_point\_sc:loc   | 1  | 6461.68 | 0.08   | 0.78    |
+
+``` r
 # Remove largest non-significant p-value for interaction and update model and continue process
-m1_act_tmp <- update(m_act_base, ~ . -t_point_sc:backg)  # Remove most non-sig interactions
+m1_act_tmp <- update(m_act_base, ~ . -backg:loc)  # Remove most non-sig interactions
 m1_act_LRT <- drop1(m1_act_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  kable_title()
+  kable_title(.)
 ```
 
-| Variable           | Df | AIC     | LRT  | p.value |
-| :----------------- | :- | :------ | :--- | :------ |
-| <none>             | NA | 6461.6  | NA   | NA      |
-| t\_point\_sc:trial | 1  | 6460.01 | 0.41 | 0.52    |
-| sex:mass\_sc       | 1  | 6460.06 | 0.46 | 0.5     |
-| t\_point\_sc:sex   | 1  | 6459.77 | 0.17 | 0.68    |
-| sex:backg          | 1  | 6460    | 0.4  | 0.53    |
-| sex:loc            | 1  | 6466.94 | 7.34 | 0.007   |
-| backg:loc          | 1  | 6459.62 | 0.02 | 0.89    |
-| t\_point\_sc:loc   | 1  | 6459.68 | 0.08 | 0.78    |
+| Variable           | Df | AIC     | LRT    | p.value |
+| :----------------- | :- | :------ | :----- | :------ |
+| <none>             | NA | 6461.62 | NA     | NA      |
+| t\_point\_sc:trial | 1  | 6460.03 | 0.41   | 0.52    |
+| sex:mass\_sc       | 1  | 6460.08 | 0.46   | 0.5     |
+| t\_point\_sc:sex   | 1  | 6459.79 | 0.17   | 0.68    |
+| sex:backg          | 1  | 6460.01 | 0.4    | 0.53    |
+| sex:loc            | 1  | 6466.96 | 7.34   | 0.007   |
+| t\_point\_sc:backg | 1  | 6459.62 | \<0.01 | 0.99    |
+| t\_point\_sc:loc   | 1  | 6459.7  | 0.08   | 0.77    |
 
 ``` r
 # Same as above
-m2_act_tmp <- update(m1_act_tmp, ~ . -backg:loc)  # same as above
+m2_act_tmp <- update(m1_act_tmp, ~ . -t_point_sc:backg)  # same as above
 m2_act_LRT <- drop1(m2_act_tmp, test = "Chi")  # same as above
 m2_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
@@ -2081,60 +2132,62 @@ m2_act_LRT %>%
 
 ``` r
 # Same as above
-m3_act_tmp <- update(m2_act_tmp, ~ . -t_point_sc:sex)  # same as above
+m3_act_tmp <- update(m2_act_tmp, ~ . -t_point_sc:trial)  # same as above
 m3_act_LRT <- drop1(m3_act_tmp, test = "Chi")  # same as above
 m3_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 ```
 
-| Variable           | Df | AIC     | LRT  | p.value |
-| :----------------- | :- | :------ | :--- | :------ |
-| <none>             | NA | 6457.79 | NA   | NA      |
-| t\_point\_sc:trial | 1  | 6456.17 | 0.38 | 0.54    |
-| sex:mass\_sc       | 1  | 6456.24 | 0.45 | 0.5     |
-| sex:backg          | 1  | 6456.19 | 0.41 | 0.52    |
-| sex:loc            | 1  | 6463.13 | 7.34 | 0.007   |
-| t\_point\_sc:loc   | 1  | 6455.87 | 0.08 | 0.78    |
+| Variable         | Df | AIC     | LRT  | p.value |
+| :--------------- | :- | :------ | :--- | :------ |
+| <none>           | NA | 6458.03 | NA   | NA      |
+| trial            | 1  | 6458.54 | 2.51 | 0.11    |
+| sex:mass\_sc     | 1  | 6456.49 | 0.46 | 0.5     |
+| t\_point\_sc:sex | 1  | 6456.17 | 0.14 | 0.71    |
+| sex:backg        | 1  | 6456.4  | 0.37 | 0.55    |
+| sex:loc          | 1  | 6463.39 | 7.35 | 0.007   |
+| t\_point\_sc:loc | 1  | 6456.11 | 0.08 | 0.78    |
 
 ``` r
 # Same as above
-m4_act_tmp <- update(m3_act_tmp, ~ . -t_point_sc:loc)  # same as above
+m4_act_tmp <- update(m3_act_tmp, ~ . -t_point_sc:sex)  # same as above
 m4_act_LRT <- drop1(m4_act_tmp, test = "Chi")  # same as above
 m4_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 ```
 
-| Variable           | Df | AIC     | LRT  | p.value |
-| :----------------- | :- | :------ | :--- | :------ |
-| <none>             | NA | 6455.87 | NA   | NA      |
-| t\_point\_sc:trial | 1  | 6454.24 | 0.38 | 0.54    |
-| sex:mass\_sc       | 1  | 6454.32 | 0.45 | 0.5     |
-| sex:backg          | 1  | 6454.28 | 0.41 | 0.52    |
-| sex:loc            | 1  | 6461.13 | 7.26 | 0.007   |
+| Variable         | Df | AIC     | LRT  | p.value |
+| :--------------- | :- | :------ | :--- | :------ |
+| <none>           | NA | 6456.17 | NA   | NA      |
+| trial            | 1  | 6456.68 | 2.51 | 0.11    |
+| sex:mass\_sc     | 1  | 6454.62 | 0.45 | 0.5     |
+| sex:backg        | 1  | 6454.54 | 0.37 | 0.54    |
+| sex:loc          | 1  | 6461.52 | 7.35 | 0.007   |
+| t\_point\_sc:loc | 1  | 6454.24 | 0.07 | 0.79    |
 
 ``` r
 # Same as above
-m5_act_tmp <- update(m4_act_tmp, ~ . -t_point_sc:trial)  # same as above
+m5_act_tmp <- update(m4_act_tmp, ~ . -sex:backg)  # same as above
 m5_act_LRT <- drop1(m5_act_tmp, test = "Chi")  # same as above
 m5_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
   knitr::kable(.)
 ```
 
-| Variable     | Df | AIC     | LRT   | p.value |
-| :----------- | :- | :------ | :---- | :------ |
-| <none>       | NA | 6454.24 | NA    | NA      |
-| t\_point\_sc | 1  | 6472.09 | 19.85 | \<0.001 |
-| trial        | 1  | 6454.77 | 2.52  | 0.11    |
-| sex:mass\_sc | 1  | 6452.69 | 0.45  | 0.5     |
-| sex:backg    | 1  | 6452.62 | 0.37  | 0.54    |
-| sex:loc      | 1  | 6459.52 | 7.28  | 0.007   |
+| Variable         | Df | AIC     | LRT   | p.value |
+| :--------------- | :- | :------ | :---- | :------ |
+| <none>           | NA | 6454.54 | NA    | NA      |
+| trial            | 1  | 6455.08 | 2.54  | 0.11    |
+| backg            | 1  | 6485.74 | 33.19 | \<0.001 |
+| sex:mass\_sc     | 1  | 6453.01 | 0.46  | 0.5     |
+| sex:loc          | 1  | 6460.16 | 7.62  | 0.006   |
+| t\_point\_sc:loc | 1  | 6452.62 | 0.07  | 0.79    |
 
 ``` r
 # Same as above
-m6_act_tmp <- update(m5_act_tmp, ~ . -sex:backg)  # same as above
+m6_act_tmp <- update(m5_act_tmp, ~ . -t_point_sc:loc)  # same as above
 m6_act_LRT <- drop1(m6_act_tmp, test = "Chi")  # same as above
 m6_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
@@ -2225,13 +2278,10 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 ``` r
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
-library(rptR)  # for repeatability analyses
-library(lme4)
-library(lmerTest)
-library(DHARMa)
-library(broom.mixed)  # for tidying model output
-library(knitr)
+library(lme4)  # glmer models
 library(glmmTMB)  # for activity analyses
+library(ggplot2)  # for plots
+library(ggeffects)  # marginal effects
 
 # Load personalized functions
 source("R/custom-functions.R")
@@ -2266,3 +2316,264 @@ data_act <-
   mutate(obsID = 1:nrow(.),  # observation level random effect
          across(where(is.character), ~ as_factor(.x)))  
 ```
+
+## Figure 2: Activity during the day
+
+``` r
+# Create data set without NA values
+data_act_na <- 
+  remove_dat_na(data_act, c("line_cross", "t_point", "t_point_sc", "trial", "mass_sc",
+                             "sex", "ID", "trial_series", "day", "obsID",
+                             "backg", "loc", "shel_dur"))
+
+# Build model
+m_act_plot <- 
+  glmmTMB(line_cross ~ t_point_sc + trial + mass_sc + backg +
+            sex * loc +
+            (1|ID) + (t_point_sc|trial_series),
+          data = data_act_na,
+          ziformula= ~ 1,
+          family="nbinom2", 
+          contrasts = list(trial = c(-1,1), sex = c(-1,1),
+                           loc = c(-1,1), backg = c(-1,1)))
+
+# Extract predicted values for population level
+dat_act_pred_pop <- as_tibble(ggeffect(m_act_plot, terms = c("t_point_sc [all]"),
+                                       type = "fe"))
+# Extract predicted values for individual level
+dat_act_pred_ind <- as_tibble(ggpredict(m_act_plot, terms = c("t_point_sc [all]", "ID [all]"),
+                                        type = "re"))
+
+# Figure out time breaks/labels for x axis 
+
+dat_time_lab <- 
+  data_act_na %>%
+    select(t_point) %>%
+    mutate(t_point_sc = scale(t_point)) %>%
+    filter(t_point %in% c(4, 8, 12, 16, 20)) %>%
+    arrange(t_point) %>%
+    distinct(.) 
+
+t_point_breaks <- dat_time_lab$t_point_sc  # x axis breaks
+t_point_labs <- c("10:00", "11:00", "12:00", "13:00", "14:00")  # x axis labels
+line_breaks <- seq(from = 0,
+                   to = round(max(dat_act_pred_ind$predicted),  # y axis breaks
+                                        digits = -1),
+                   by = round(max(dat_act_pred_ind$predicted),
+                              digits = -1)/4)  
+
+# Plot
+
+p <- ggplot(data = dat_act_pred_pop, # pop level data
+            aes(x = x,
+                y = predicted)) +
+  geom_line(data = dat_act_pred_ind, # ind level data
+             aes(y = predicted,
+                 x = x,
+                 group = group),
+                 alpha = 0.70) +
+  geom_line(size = 1.5,  # pop mean line
+            lty = "longdash") +
+  scale_y_continuous(breaks = line_breaks) +
+  scale_x_continuous(labels = t_point_labs,
+                     breaks = t_point_breaks,
+                     expand = c(0,0)) +  # moves lines to touch y-axis (no white space) 
+  xlab("Time of day") +
+  ylab("Lines crossed") +
+  #ggtitle("Lines crossed") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(face = "bold"),
+        axis.title.y = element_text(face = "bold"),
+        panel.border = element_blank(),
+        axis.line = element_line(),
+        axis.text = element_text(face = "bold", color = "black"),
+        text = element_text(size = 16)) 
+print(p)
+```
+
+![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig1-activity-day-1.png)<!-- -->
+
+## Figure 3: Open-Field location preference during the day, by background color
+
+``` r
+# Remove NA values
+data_OF <- 
+  remove_dat_na(data_time, c("of_loc", "t_point_sc", "trial", "mass_sc",
+                             "sex", "ID", "trial_series", "day", "bkgrd",
+                             "obsID"))
+
+# Fit model
+m_OF_plot <- 
+  glmer(of_loc ~ trial + mass_sc +
+          bkgrd * t_point_sc +
+          sex * bkgrd +
+          (1|ID) + (t_point_sc|trial_series),  
+        data = data_OF,
+        family = "binomial", 
+        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
+        glmerControl(optimizer="bobyqa",
+                    optCtrl = list(maxfun = 1e6)))
+
+# Extract predicted values for population level
+dat_act_pred_pop1 <- 
+  ggeffect(m_OF_plot, terms = c("t_point_sc [all]", "bkgrd"),
+           type = "fe") %>%
+  as_tibble(.) %>%
+  rename(facet = group) %>%
+  mutate(group = 1) 
+
+dat_act_pred_pop2 <- 
+  ggeffect(m_OF_plot, terms = c("t_point_sc [all]", "bkgrd"),
+           type = "fe") %>%
+  as_tibble(.) %>%
+  rename(facet = group) %>%
+  mutate(group = 2) 
+
+# combine into one so you can facet with one slope per facet
+dat_act_pred_pop <-
+  rbind(dat_act_pred_pop1, dat_act_pred_pop2) %>%
+  mutate(group = as_factor(group),
+         facet = as_factor(ifelse(facet == "Light", "Light Background",
+                                                    "Dark Background")))
+
+# Extract predicted values for individual level
+dat_of_pred_ind <- 
+  ggpredict(m_OF_plot,
+            terms = c("t_point_sc [all]", "ID [all]", "bkgrd"),
+            type = "re") %>%
+  as_tibble(.) %>%
+  mutate(group = as.factor(group),
+         facet = as_factor(ifelse(facet == "Light", "Light Background",
+                                                    "Dark Background")))
+
+## Figure out time breaks/labels for x axis 
+
+dat_time_lab <- 
+  data_act_na %>%
+    select(t_point) %>%
+    mutate(t_point_sc = scale(t_point)) %>%
+    filter(t_point %in% c(4, 8, 12, 16, 20)) %>%
+    arrange(t_point) %>%
+    distinct(.) 
+
+t_point_breaks <- dat_time_lab$t_point_sc  # x axis breaks
+t_point_labs <- c("10:00", "11:00", "12:00", "13:00", "14:00")  # x axis labels
+
+# Plot
+
+p <- 
+  ggplot(data = dat_of_pred_ind, # pop mean 
+         aes(x = x,
+             y = predicted,
+           color = facet)) +
+  geom_line(aes(group = group), # ind id
+            alpha = 0.50) +
+  geom_line(data = dat_act_pred_pop,
+              size = 1.5,
+           aes(color = facet),
+           lty = "longdash") +  # pop mean
+  scale_x_continuous(labels = t_point_labs,
+                     breaks = t_point_breaks) +
+  xlab("Time of day") +
+  ylab("Probability of being in the outer area") +
+  scale_color_manual(name = "Background \ncolor",
+                     values = c("grey60", "chocolate4")) + # color for legend
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(face = "bold"),
+        axis.title.y = element_text(face = "bold"),
+        panel.border = element_blank(),
+        axis.line = element_line(),
+        axis.text = element_text(face = "bold", color = "black"),
+        text = element_text(size = 16),
+        strip.text.x = element_text(size=12, face="bold"),
+        legend.position = "none") +
+  facet_wrap(~ facet)
+
+print(p)
+```
+
+![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig3-of-pref-time-bkgrd-1.png)<!-- -->
+
+## Figure 4: Open-Field location preference, background color and sex interaction
+
+``` r
+# Remove NA values
+data_OF <- 
+  remove_dat_na(data_time, c("of_loc", "t_point_sc", "trial", "mass_sc",
+                             "sex", "ID", "trial_series", "day", "bkgrd",
+                             "obsID"))
+
+# Fit model
+m_OF_plot <- 
+  glmer(of_loc ~ trial + mass_sc +
+          bkgrd * t_point_sc +
+          sex * bkgrd +
+          (1|ID) + (t_point_sc|trial_series),  
+        data = data_OF,
+        family = "binomial", 
+        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
+        glmerControl(optimizer="bobyqa",
+                    optCtrl = list(maxfun = 1e6)))
+
+# Extract predicted values for population level
+dat_of_pred_pop <- 
+  ggeffect(m_OF_plot,
+           terms = c("sex", "bkgrd"),
+           type = "fe") 
+
+# Get fixed effect slopes
+dat_of_pred_ind <- 
+  ggpredict(m_OF_plot,
+            terms = c("sex", "bkgrd", "ID [all]"),
+            type = "re")
+
+p <- ggplot(data = dat_of_pred_pop,
+       aes(x = x,
+           y = predicted,
+           color = group,
+           shape = x)) +
+  geom_point(position = position_dodge(width = 0.6),
+             size = 4) +
+  geom_point(data = dat_of_pred_ind,
+             aes(x = x,
+                 y = predicted,
+                 color = group,
+                 shape = x),
+             position = position_jitterdodge(dodge.width = -0.6),
+             size = 2,
+             alpha = 0.7) +
+  geom_errorbar(aes(ymax = conf.high,
+                    ymin = conf.low),
+                width = 0.35,
+                position = position_dodge(width = 0.6),
+             size = 1.5) +
+  xlab("Sex") +
+  #ylab("Probability of being in the outer area of the open field") +
+  ylab(expression(paste(bold(Probability~of~being~"in"~the~outer~area)~bold(""%+-%"")*bold("95"*"%"~C.I.)))) +
+  scale_color_manual(name = "Background \ncolor",
+                     values = c("chocolate4", "grey60")) + # color for legend
+  scale_shape_manual(values = c(17, 19),
+                     guide = F) + # shapes for sexess
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.title.x = element_text(face = "bold"),
+        axis.title.y = element_text(face = "bold"),
+        panel.border = element_blank(),
+        axis.line = element_line(),
+        axis.text = element_text(face = "bold", color = "black"),
+        text = element_text(size = 16),
+        legend.position=c(0.87,0.5),
+        legend.title = element_text(size = 14),
+        legend.text = element_text(size = 12),
+        legend.box.background = element_rect(colour = "black",
+                                             size = 1)) 
+
+print(p)
+```
+
+![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig4-of-bkgrd-sex-1.png)<!-- -->
