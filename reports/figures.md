@@ -139,7 +139,7 @@ p <- ggplot(data = dat_act_pred_pop, # pop level data
 print(p)
 ```
 
-![](../figs/fig1-activity-day-1.png)<!-- -->
+![](../figs/fig2-activity-day-1.png)<!-- -->
 
 ## Figure 3: Open-Field location preference during the day, by background color
 

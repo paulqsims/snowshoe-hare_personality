@@ -60,7 +60,7 @@ data_act <-
 
 ## Figure 2: Activity during the day
 
-```{r fig1-activity-day, fig.width=7,fig.height=5}
+```{r fig2-activity-day, fig.width=7,fig.height=5}
 # Create data set without NA values
 data_act_na <- 
   remove_dat_na(data_act, c("line_cross", "t_point", "t_point_sc", "trial", "mass_sc",

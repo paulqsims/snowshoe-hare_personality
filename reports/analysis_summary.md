@@ -2394,7 +2394,7 @@ p <- ggplot(data = dat_act_pred_pop, # pop level data
 print(p)
 ```
 
-![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig1-activity-day-1.png)<!-- -->
+![](../figs/fig2-activity-day-1.png)<!-- -->
 
 ## Figure 3: Open-Field location preference during the day, by background color
 
@@ -2497,7 +2497,7 @@ p <-
 print(p)
 ```
 
-![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig3-of-pref-time-bkgrd-1.png)<!-- -->
+![](../figs/fig3-of-pref-time-bkgrd-1.png)<!-- -->
 
 ## Figure 4: Open-Field location preference, background color and sex interaction
 
@@ -2577,4 +2577,4 @@ p <- ggplot(data = dat_of_pred_pop,
 print(p)
 ```
 
-![](/Users/Paul/Google%20Drive/Diana&Paul/snowshoe-hare_personality/reports/analysis_summary_files/figure-gfm/fig4-of-bkgrd-sex-1.png)<!-- -->
+![](../figs/fig4-of-bkgrd-sex-1.png)<!-- -->
