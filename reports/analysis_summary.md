@@ -2390,6 +2390,7 @@ p <- ggplot(data = dat_act_pred_pop, # pop level data
         axis.line = element_line(),
         axis.text = element_text(face = "bold", color = "black"),
         text = element_text(size = 16)) 
+
 print(p)
 ```
 
