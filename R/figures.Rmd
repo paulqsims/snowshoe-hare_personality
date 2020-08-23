@@ -19,12 +19,10 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 ```{r figure-setup}
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
-library(lme4)
-library(lmerTest)
+library(lme4)  # glmer models
 library(glmmTMB)  # for activity analyses
 library(ggplot2)  # for plots
-library(ggsignif)  # for sig stars
-library(ggeffects)
+library(ggeffects)  # marginal effects
 
 # Load personalized functions
 source("R/custom-functions.R")
@@ -62,7 +60,7 @@ data_act <-
 
 ## Figure 2: Activity during the day
 
-```{r fig1-activity-day}
+```{r fig1-activity-day, fig.width=7,fig.height=5}
 # Create data set without NA values
 data_act_na <- 
   remove_dat_na(data_act, c("line_cross", "t_point", "t_point_sc", "trial", "mass_sc",
@@ -138,7 +136,7 @@ print(p)
 
 ## Figure 3: Open-Field location preference during the day, by background color
 
-```{r fig3-of-pref-time-bkgrd}
+```{r fig3-of-pref-time-bkgrd, fig.width=8, fig.height=4.5}
 # Remove NA values
 data_OF <- 
   remove_dat_na(data_time, c("of_loc", "t_point_sc", "trial", "mass_sc",
@@ -239,7 +237,7 @@ print(p)
 
 ## Figure 4: Open-Field location preference, background color and sex interaction
 
-```{r fig4-of-bkgrd-sex}
+```{r fig4-of-bkgrd-sex, fig.width=7, fig.height=7}
 # Remove NA values
 data_OF <- 
   remove_dat_na(data_time, c("of_loc", "t_point_sc", "trial", "mass_sc",
