@@ -323,7 +323,7 @@ m_shel_rpt_final <-
 
 ```{r shel-var-rpt-est, cache=TRUE}
 # Bootstrap confidence intervals
-res_bootOut <-
+res_bootOut_shel <-
   bootMer(m_shel_rpt_final,  # final rpt model
           use.u = FALSE,
           FUN = varEst_shel,  # custom variance estimates function
@@ -334,19 +334,19 @@ res_bootOut <-
           .progress = "txt")
 
 # Compile variance estimates 
-res_varEst <-
-  as_tibble(res_bootOut$t) %>%
+res_varEst_shel <-
+  as_tibble(res_bootOut_shel$t) %>%
   rename("Series Intercept" = "V1",
          "Series Slope" = "V2",
          "Residual" = "V3") %>%
   map_df(~ quantile(.x, c((1 - 0.95)/2, 1 - (1 - 0.95)/2),
                   na.rm = TRUE), .id = "scale") %>%
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
-  mutate(Estimate = pluck(res_bootOut$t0)) %>%  # add R estimates
+  mutate(Estimate = pluck(res_bootOut_shel$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
   mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
 
-kable(res_varEst)
+kable(res_varEst_shel)
 ```
 
 ### Open-Field location preference
@@ -498,7 +498,7 @@ m_OFloc_rpt_final <-
 
 ```{r OF-var-rpt-est, cache=TRUE}
 # Bootstrap confidence intervals
-res_bootOut <- 
+res_bootOut_OFloc <- 
   bootMer(m_OFloc_rpt_final,  # final rpt model 
           use.u = FALSE, 
           FUN = varEst_OF,  # custom variance estimates function
@@ -509,8 +509,8 @@ res_bootOut <-
           .progress = "txt")
 
 # Compile variance and repeatability estimates 
-res_varEst <- 
-  as_tibble(res_bootOut$t) %>%
+res_varEst_OFloc <- 
+  as_tibble(res_bootOut_OFloc$t) %>%
   rename("Individual Intercept" = "V1",
          "Series Intercept" = "V2",
          "Series Slope" = "V3",
@@ -520,11 +520,11 @@ res_varEst <-
   map_df(~ quantile(.x, c((1 - 0.95)/2, 1 - (1 - 0.95)/2),  # calculate 95CI from bootstrap
                   na.rm = TRUE), .id = "scale") %>%
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
-  mutate(Estimate = pluck(res_bootOut$t0)) %>%  # add R estimates
+  mutate(Estimate = pluck(res_bootOut_OFloc$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
   mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
 
-kable(res_varEst)
+kable(res_varEst_OFloc)
 ```
 
 ## Background preference
@@ -677,7 +677,7 @@ m_bkgrd_rpt_final <-
 
 ```{r bkgrd-var-rpt-est, cache=TRUE}
 # Bootstrap confidence intervals
-res_bootOut <- 
+res_bootOut_bkgrd <- 
   bootMer(m_bkgrd_rpt_final,  # final rpt model 
           use.u = FALSE, 
           FUN = varEst_bkgrd,  # custom variance estimates function
@@ -688,8 +688,8 @@ res_bootOut <-
           .progress = "txt")
 
 # Compile variance and repeatability estimates 
-res_varEst <- 
-  as_tibble(res_bootOut$t) %>%
+res_varEst_bkgrd <- 
+  as_tibble(res_bootOut_bkgrd$t) %>%
   rename("Individual Intercept" = "V1",
          "Individual Slope" = "V2",
          "Series Intercept" = "V3",
@@ -701,11 +701,11 @@ res_varEst <-
   map_df(~ quantile(.x, c((1 - 0.95)/2, 1 - (1 - 0.95)/2),  # calculate 95CI from bootstrap
                   na.rm = TRUE), .id = "scale") %>%
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
-  mutate(Estimate = pluck(res_bootOut$t0)) %>%  # add R estimates
+  mutate(Estimate = pluck(res_bootOut_bkgrd$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
   mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
 
-kable(res_varEst)
+kable(res_varEst_bkgrd)
 ```
 
 ## Activity
@@ -861,7 +861,7 @@ m_act_rpt_final <-
 
 ```{r act-var-rpt-est, cache=TRUE}
 # Bootstrap confidence intervals
-res_bootOut <- 
+res_bootOut_act <- 
   bootMer(m_act_rpt_final,  # final rpt model 
           use.u = FALSE, 
           FUN = varEst_act,  # custom variance estimates function
@@ -872,8 +872,8 @@ res_bootOut <-
           .progress = "txt")
 
 # Compile variance and repeatability estimates 
-res_varEst <- 
-  as_tibble(res_bootOut$t) %>%
+res_varEst_act <- 
+  as_tibble(res_bootOut_act$t) %>%
   rename("Individual Intercept" = "V1",
          "Series Intercept" = "V2",
          "Series Slope" = "V3",
@@ -883,9 +883,9 @@ res_varEst <-
   map_df(~ quantile(.x, c((1 - 0.95)/2, 1 - (1 - 0.95)/2),  # calculate 95CI from bootstrap
                   na.rm = TRUE), .id = "scale") %>%
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
-  mutate(Estimate = pluck(res_bootOut$t0)) %>%  # add R estimates
+  mutate(Estimate = pluck(res_bootOut_act$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
   mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
 
-kable(res_varEst)
+kable(res_varEst_act)
 ```
