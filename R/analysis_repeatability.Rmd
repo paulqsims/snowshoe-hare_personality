@@ -18,11 +18,10 @@ knitr::opts_chunk$set(root.dir = rprojroot::find_rstudio_root_file(),
 ```{r rpt-setup, cache=FALSE}
 # Load libraries
 library(tidyverse)  # for cleaning and modifying data
-library(lme4)
-library(lmerTest)
-library(DHARMa)
+library(lme4)  # glmer models
+library(lmerTest)  # glmer models
 library(broom.mixed)  # for tidying model output
-library(knitr)
+library(knitr)  # tidying output
 library(glmmTMB)  # for activity analyses
 
 # Load personalized functions
@@ -823,7 +822,7 @@ m_act_reduc <- refitModelRanEf(m_act_base,
 rpt_SigTest(m_act_full, m_act_reduc)
 
 # print significant intercept-slope correlation
-kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
+kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$trial_series,"correlation")[1,2],
       column_name = "Random intercept-slope variance estimate"),
       digits = 2,
       align = "l")
