@@ -78,7 +78,7 @@ m_AdjRpt_expl <-
   glmer(expl.y ~ trial + sex + (1|ID),  
         family = "binomial", 
         data = data_expl_rpt,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -87,7 +87,7 @@ m_AdjRpt_expl_null <-
   glm(expl.y ~ trial + sex,  
         family = "binomial", 
         data = data_expl_rpt,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)))
+        contrasts = list(trial = c(-1,1)))
 
 # Likelihood ratio test for significance of ind. random effect and rpt
 #  Custom functions
@@ -137,7 +137,7 @@ m_AdjRpt_ExitLat <-
   glmer(exit_fast ~ trial + sex + (1|ID),  
         family = "binomial", 
         data = data_shelExit_rpt,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -146,7 +146,7 @@ m_AdjRpt_ExitLat_null <-
   glm(exit_fast ~ trial + sex,  
         family = "binomial", 
         data = data_shelExit_rpt,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)))
+        contrasts = list(trial = c(-1,1)))
 
 # Likelihood ratio test for significance of ind. random effect and rpt
 rpt_SigTest(m_AdjRpt_ExitLat, m_AdjRpt_ExitLat_null)
@@ -186,7 +186,7 @@ m_shel_base <-
           (1|ID) + (t_point_sc|trial_series) + (1|obsID),
         data = data_shel_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -284,6 +284,12 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
 
 # LRT for significance of intercept-slope correlation
 rpt_SigTest(m_shel_full, m_shel_reduc)
+
+# print significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_shel_full)$trial_series,"correlation")[2,1],
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
+      align = "l")
 ```
 
 **Test significance of (reaction norm) time slope**
@@ -311,7 +317,7 @@ m_shel_rpt_final <-
           (0 + t_point_sc|trial_series) + (1|trial_series),  
         data = data_shel_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 ```
@@ -344,7 +350,7 @@ res_varEst_shel <-
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
   mutate(Estimate = pluck(res_bootOut_shel$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
-  mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
+  mutate_at(c(2:4), round_est)  # # round estimates and errors to 2 digits
 
 kable(res_varEst_shel)
 ```
@@ -373,7 +379,7 @@ m_OFloc_base <-
           (1|ID) + (t_point_sc|trial_series),  
         data = data_of_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -462,6 +468,12 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
 
 # LRT for significance of intercept-slope correlation
 rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+
+# print significant intercept-slope correlation
+kable(as_tibble_col(attr(VarCorr(m_OFloc_full)$trial_series,"correlation")[2,1],
+      column_name = "Random intercept-slope variance estimate"),
+      digits = 2,
+      align = "l")
 ```
 
 **Test significance of (reaction norm) time slope**
@@ -489,7 +501,7 @@ m_OFloc_rpt_final <-
           (1|ID) + (0 + t_point_sc|trial_series) + (1|trial_series),  
         data = data_of_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 ```
@@ -522,7 +534,7 @@ res_varEst_OFloc <-
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
   mutate(Estimate = pluck(res_bootOut_OFloc$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
-  mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
+  mutate_at(c(2:4), round_est)  # # round estimates and errors to 2 digits
 
 kable(res_varEst_OFloc)
 ```
@@ -551,7 +563,7 @@ m_bkgrd_base <-
           (1|ID) + (t_point_sc|trial_series), 
         data = data_bkgrd_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -668,7 +680,7 @@ m_bkgrd_rpt_final <-
           (0 + t_point_sc|ID) + (1|ID) + (0 + t_point_sc|trial_series) + (1|trial_series),  
         data = data_bkgrd_rpt,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 ```
@@ -703,7 +715,7 @@ res_varEst_bkgrd <-
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
   mutate(Estimate = pluck(res_bootOut_bkgrd$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
-  mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
+  mutate_at(c(2:4), round_est)  # # round estimates and errors to 2 digits
 
 kable(res_varEst_bkgrd)
 ```
@@ -731,7 +743,7 @@ m_act_base <-
   glmmTMB(line_cross ~ t_point_sc * trial + sex +
             (1|ID) + (t_point_sc|trial_series),
           data = data_act_rpt,
-          contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+          contrasts = list(trial = c(-1,1)),
           ziformula= ~ 1,
           family="nbinom2")
 
@@ -852,7 +864,7 @@ m_act_rpt_final <-
   glmmTMB(line_cross ~ t_point_sc * trial + sex +
             (1|ID) + (0 + t_point_sc|trial_series) + (1|trial_series),
           data = data_act_rpt,
-          contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+          contrasts = list(trial = c(-1,1)),
           ziformula= ~ 1,
           family="nbinom2")
 ```
@@ -885,7 +897,7 @@ res_varEst_act <-
   rename(Variable = scale, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
   mutate(Estimate = pluck(res_bootOut_act$t0)) %>%  # add R estimates
   relocate(Variable, Estimate) %>%  # reorder columns
-  mutate_at(c(2:4), round, 2)  # # round estimates and errors to 2 digits
+  mutate_at(c(2:4), round_est)  # # round estimates and errors to 2 digits
 
 kable(res_varEst_act)
 ```

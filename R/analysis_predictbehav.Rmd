@@ -80,7 +80,7 @@ m_expl_full <-
   glmer(expl.y ~ trial + sex * mass_sc + (1|ID),
         family = "binomial", 
         data = data_expl,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -109,7 +109,7 @@ kable(t(MuMIn::r.squaredGLMM(m_expl_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2") 
 ```
 
-**Marginal mean**
+**Grand mean**
 
 ```{r explore-mean}
 # Fit model
@@ -158,7 +158,7 @@ m_ExitLat_full <-
   glmer(exit_fast ~ trial + sex * mass_sc + (1|ID),
         family = "binomial", 
         data = data_shelExit,
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
         optCtrl = list(maxfun = 1e6)))
 
@@ -187,7 +187,7 @@ kable(t(MuMIn::r.squaredGLMM(m_ExitLat_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2")
 ```
 
-**Marginal mean**
+**Grand mean**
 
 ```{r shel-exit-mean}
 # Fit model
@@ -239,7 +239,7 @@ m_shel_base <-
           (t_point_sc|trial_series),  
         data = data_shel,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -303,7 +303,7 @@ kable(t(MuMIn::r.squaredGLMM(m_shel_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2")
 ```
 
-##### Marginal Mean
+##### Grand Mean
 
 ```{r shel-pref-marg}
 m_shel_final_marg <- update(m_shel_final,
@@ -347,7 +347,7 @@ m_OF_base <-
           (1|ID) + (t_point_sc|trial_series),  
         data = data_OF,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1), bkgrd = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -420,7 +420,7 @@ m_bkgrd_base <-
           (1|ID) + (0 + t_point_sc|ID) + (1|trial_series) + (0 + t_point_sc|trial_series),
         data = data_bkgrd,
         family = "binomial", 
-        contrasts = list(trial = c(-1,1), sex = c(-1,1)),
+        contrasts = list(trial = c(-1,1)),
         glmerControl(optimizer="bobyqa",
                     optCtrl = list(maxfun = 1e6)))
 
@@ -500,8 +500,7 @@ m_act_base <-
           data = data_act,
           ziformula= ~ 1,
           family="nbinom2", 
-          contrasts = list(trial = c(-1,1), sex = c(-1,1),
-                           loc = c(-1,1), backg = c(-1,1)))
+          contrasts = list(trial = c(-1,1)))
 
 # Find largest non-significant p-value for interaction
 m_act_LRT <- 
