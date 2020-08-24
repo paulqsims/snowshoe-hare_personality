@@ -351,10 +351,12 @@ RptConfInt_day <- function(bootMerOutput) {
     map_df(~ stats::quantile(.x,  # map 95% C.I. for each column
                              c((1 - 0.95)/2, 1 - (1 - 0.95)/2),
                              na.rm = TRUE)) %>%
-    mutate(Estimate = bootMerOutput$t0,
-           Variable = c("Individual Intercept", "Residual", "Repeatability")) %>%
+    mutate(Estimate = round_est(bootMerOutput$t0),
+           Variable = c("Individual Intercept", "Residual", "Repeatability"),
+           `2.5%` = round_est(`2.5%`),
+           `97.5%` = round_est(`97.5%`)) %>%
     select(Variable, Estimate, Lower95CI = `2.5%`, Upper95CI = `97.5%`) %>%
-    knitr::kable(., digits = 2, align = "l",
+    knitr::kable(., align = "l",
                  caption = "Variance and repeatability estimates ± 95% CI") 
 }
 
