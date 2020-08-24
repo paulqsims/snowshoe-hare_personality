@@ -91,7 +91,8 @@ m_AdjRpt_expl_null <-
 
 # Likelihood ratio test for significance of ind. random effect and rpt
 #  Custom functions
-rpt_SigTest(m_AdjRpt_expl, m_AdjRpt_expl_null)
+rpt_SigTest(m_AdjRpt_expl, m_AdjRpt_expl_null,
+            title = "Area explored")
 ```
 
 ### Variance and repeatability estimates
@@ -149,7 +150,8 @@ m_AdjRpt_ExitLat_null <-
         contrasts = list(trial = c(-1,1)))
 
 # Likelihood ratio test for significance of ind. random effect and rpt
-rpt_SigTest(m_AdjRpt_ExitLat, m_AdjRpt_ExitLat_null)
+rpt_SigTest(m_AdjRpt_ExitLat, m_AdjRpt_ExitLat_null,
+            title = "Shelter exit latency")
 ```
 
 #### Variance and repeatability estimates
@@ -195,7 +197,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                  "(t_point_sc|trial_series) + (1|obsID)")
 
 # LRT for significance of individual ID
-rpt_SigTest(m_shel_base, m_shel_reduc)
+rpt_SigTest(m_shel_base, m_shel_reduc,
+            title = "shelter preference")
 
 # Non-significant random intercept variance estimate
 kable(as_tibble_col(VarCorr(m_shel_base)$ID[1],
@@ -220,7 +223,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                   (t_point_sc|trial_series) + (1|obsID)")
 
 # LRT for significance of intercept-slope correlation
-rpt_SigTest(m_shel_full, m_shel_reduc)
+rpt_SigTest(m_shel_full, m_shel_reduc,
+            title = "shelter preference")
 
 # print non-significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_shel_full)$ID,"correlation")[2,1],
@@ -244,7 +248,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                  "(1|ID) + (t_point_sc|trial_series) + (1|obsID)")
 
 # LRT for significance of random slope 
-rpt_SigTest(m_shel_full, m_shel_reduc)
+rpt_SigTest(m_shel_full, m_shel_reduc,
+            title = "shelter preference")
 
 # Non-significant random slope variance estimate
 kable(as_tibble_col(VarCorr(m_shel_full)$ID.1[1],
@@ -265,7 +270,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                  "(1|ID)")
 
 # LRT for significance of intercept
-rpt_SigTest(m_shel_full, m_shel_reduc)
+rpt_SigTest(m_shel_full, m_shel_reduc,
+            title = "shelter preference")
 ```
 
 **Test significance of (reaction norm) trial series intercept and time slope correlation**
@@ -283,7 +289,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                   (1|trial_series) + (1|obsID)")
 
 # LRT for significance of intercept-slope correlation
-rpt_SigTest(m_shel_full, m_shel_reduc)
+rpt_SigTest(m_shel_full, m_shel_reduc,
+            title = "shelter preference")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_shel_full)$trial_series,"correlation")[2,1],
@@ -304,7 +311,8 @@ m_shel_reduc <- refitModelRanEf(m_shel_base,
                                  "(1|ID) + (1|trial_series) + (1|obsID)")
 
 # LRT for significance of random slope
-rpt_SigTest(m_shel_full, m_shel_reduc)
+rpt_SigTest(m_shel_full, m_shel_reduc,
+            title = "shelter preference")
 ```
 
 **Final random effect model structure**
@@ -388,7 +396,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                  "(t_point_sc|trial_series)")
 
 # LRT for significance of individual ID
-rpt_SigTest(m_OFloc_base, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_base, m_OFloc_reduc,
+            title = "OF location preference")
 ```
 
 **Test significance of individual intercept and time slope correlation (t_point_sc|ID)**
@@ -406,7 +415,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                   (t_point_sc|trial_series)")
 
 # LRT for significance of intercept-slope correlation
-rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_full, m_OFloc_reduc,
+            title = "OF location preference")
 
 # print non-significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_OFloc_full)$ID,"correlation")[2,1],
@@ -428,7 +438,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                  "(1|ID) + (t_point_sc|trial_series)")
 
 # LRT for significance of random slope 
-rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_full, m_OFloc_reduc,
+            title = "OF location preference")
 
 # Non-significant random slope variance estimate
 kable(as_tibble_col(VarCorr(m_OFloc_full)$ID.1[1],
@@ -449,7 +460,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                  "(1|ID)")
 
 # LRT for significance of intercept
-rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_full, m_OFloc_reduc,
+            title = "OF location preference")
 ```
 
 **Test significance of (reaction norm) trial series intercept and time slope correlation**
@@ -467,7 +479,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                   (1|trial_series)")
 
 # LRT for significance of intercept-slope correlation
-rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_full, m_OFloc_reduc,
+            title = "OF location preference")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_OFloc_full)$trial_series,"correlation")[2,1],
@@ -488,7 +501,8 @@ m_OFloc_reduc <- refitModelRanEf(m_OFloc_base,
                                  "(1|ID) + (1|trial_series)")
 
 # LRT for significance of random slope
-rpt_SigTest(m_OFloc_full, m_OFloc_reduc)
+rpt_SigTest(m_OFloc_full, m_OFloc_reduc,
+            title = "OF location preference")
 ```
 
 **Final random effect model structure**
@@ -572,7 +586,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                  "(t_point_sc|trial_series)")
 
 # LRT for significance bkgrd individual ID
-rpt_SigTest(m_bkgrd_base, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_base, m_bkgrd_reduc,
+            title = "Background preference")
 ```
 
 **Test significance of individual intercept and time slope correlation (t_point_sc|ID)**
@@ -590,7 +605,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                   (t_point_sc|trial_series)")
 
 # LRT for significance bkgrd intercept-slope correlation
-rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc,
+            title = "Background preference")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$ID,"correlation")[2,1],
@@ -612,7 +628,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                  "(1|ID) + (t_point_sc|trial_series)")
 
 # LRT for significance bkgrd random slope 
-rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc,
+            title = "Background preference")
 ```
 
 **Test significance of (reaction norm) trial series intercept**
@@ -627,7 +644,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                  "(t_point_sc|ID)")
 
 # LRT for significance bkgrd intercept
-rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc,
+            title = "Background preference")
 ```
 
 **Test significance of (reaction norm) trial series intercept and time slope correlation**
@@ -645,7 +663,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                   (1|trial_series)")
 
 # LRT for significance bkgrd intercept-slope correlation
-rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc,
+            title = "Background preference")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_bkgrd_full)$trial_series,"correlation")[2,1],
@@ -666,7 +685,8 @@ m_bkgrd_reduc <- refitModelRanEf(m_bkgrd_base,
                                  "(t_point_sc|ID) + (1|trial_series)")
 
 # LRT for significance bkgrd random slope
-rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc)
+rpt_SigTest(m_bkgrd_full, m_bkgrd_reduc,
+            title = "Background preference")
 ```
 
 **Final random effect model structure**
@@ -752,7 +772,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                  "(t_point_sc|trial_series)")
 
 # LRT for significance act individual ID
-rpt_SigTest(m_act_base, m_act_reduc)
+rpt_SigTest(m_act_base, m_act_reduc,
+            title = "Activity")
 ```
 
 **Test significance of individual intercept and time slope correlation (t_point_sc|ID)**
@@ -770,7 +791,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                   (t_point_sc|trial_series)")
 
 # LRT for significance act intercept-slope correlation
-rpt_SigTest(m_act_full, m_act_reduc)
+rpt_SigTest(m_act_full, m_act_reduc,
+            title = "Activity")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
@@ -792,7 +814,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                  "(1|ID) + (t_point_sc|trial_series)")
 
 # LRT for significance act random slope 
-rpt_SigTest(m_act_full, m_act_reduc)
+rpt_SigTest(m_act_full, m_act_reduc,
+            title = "Activity")
 
 # print non-significant random slope
 kable(as_tibble_col(VarCorr(m_act_full)$cond$ID[2,2],
@@ -813,7 +836,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                  "(1|ID)")
 
 # LRT for significance act intercept
-rpt_SigTest(m_act_full, m_act_reduc)
+rpt_SigTest(m_act_full, m_act_reduc,
+            title = "Activity")
 ```
 
 **Test significance of (reaction norm) trial series intercept and time slope correlation**
@@ -831,7 +855,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                   (1|trial_series)")
 
 # LRT for significance act intercept-slope correlation
-rpt_SigTest(m_act_full, m_act_reduc)
+rpt_SigTest(m_act_full, m_act_reduc,
+            title = "Activity")
 
 # print significant intercept-slope correlation
 kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$trial_series,"correlation")[1,2],
@@ -852,7 +877,8 @@ m_act_reduc <- refitModelRanEf(m_act_base,
                                  "(1|ID) + (1|trial_series)")
 
 # LRT for significance act random slope
-rpt_SigTest(m_act_full, m_act_reduc)
+rpt_SigTest(m_act_full, m_act_reduc,
+            title = "Activity")
 ```
 
 **Final random effect model structure**

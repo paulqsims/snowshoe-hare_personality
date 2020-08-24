@@ -363,15 +363,21 @@ RptConfInt_day <- function(bootMerOutput) {
 # Likelihood ratio test for significance of random effect
 # REQUIRES TIDYVERSE LOADED B?C OF PIPELINE
 
-rpt_SigTest <- function(fullmod, redmod) {
+rpt_SigTest <- function(fullmod, redmod, title = NULL) {
   anova(fullmod, redmod, test = "LRT") %>%
     mutate(p_value = ifelse(!is.na(`Pr(>Chisq)`),  # divide p-value by 2 b/c testing on the boundary 
                             `Pr(>Chisq)`/2, `Pr(>Chisq)`),
            p_value = round_pval(p_value)) %>%  
     select(-`Pr(>Chisq)`) %>%
-    knitr::kable(., digits = 2, align = "l",
-                 caption = "Likelihood ratio test for significance of
+    {if (is.null(title)) {
+      knitr::kable(., digits = 2, align = "l",
+                   caption = "Likelihood ratio test for significance of
                  random effect")
+    } else if (!is.null(title)) {
+      knitr::kable(., digits = 2, align = "l",
+                   caption = paste(title, "Likelihood ratio test for significance of
+                 random effect", sep = " "))
+    }}
 }
 
 
