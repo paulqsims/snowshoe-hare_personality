@@ -87,7 +87,7 @@ m_expl_full <-
 # Test for significance of interactions
 drop1(m_expl_full, test = "Chisq") %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for area explored")
 
 # Drop sex * mass interaction
 m_expl_final <- update(m_expl_full, ~ . -sex:mass_sc) 
@@ -132,7 +132,7 @@ broom.mixed::tidy(m_expl_means,
   select(-effect, `estimate (proportion)` = estimate, -estimate.pr) %>%
   filter(term == "(Intercept)") %>%
   kable(., align = "l",
-        caption = "Marginal mean area explored")
+        caption = "Grand mean area explored")
 ```
 
 ### Risk-taking
@@ -165,7 +165,7 @@ m_ExitLat_full <-
 # Test for significance of interactions
 drop1(m_ExitLat_full, test = "Chisq") %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for shelter exit latency")
   
 # Drop sex * mass interaction
 m_ExitLat_final <- update(m_ExitLat_full, ~ . -sex:mass_sc) 
@@ -210,7 +210,7 @@ broom.mixed::tidy(m_ExitLat_means,
   select(-effect, `estimate (probability)` = estimate, -estimate.pr) %>%
   filter(term == "(Intercept)") %>%
   kable(., align = "l",
-        caption = "Marginal mean shelter exit latency")
+        caption = "Grand mean shelter exit latency")
 ```
 
 #### Shelter preference
@@ -246,42 +246,42 @@ m_shel_base <-
 # Find largest non-significant p-value for interaction
 drop1(m_shel_base, test = "Chisq") %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Remove largest non-significant p-value for interaction and update model and continue process
 m1_shel_tmp <- update(m_shel_base, ~ . -t_point_sc:trial)  # Remove most non-sig interactions
 m1_shel_LRT <- drop1(m1_shel_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_shel_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Same as above
 m2_shel_tmp <- update(m1_shel_tmp, ~ . -sex:bkgrd)  # same as above
 m2_shel_LRT <- drop1(m2_shel_tmp, test = "Chi")  # same as above
 m2_shel_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Same as above
 m3_shel_tmp <- update(m2_shel_tmp, ~ . -t_point_sc:bkgrd)  # same as above
 m3_shel_LRT <- drop1(m3_shel_tmp, test = "Chi")  # same as above
 m3_shel_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Same as above
 m4_shel_tmp <- update(m3_shel_tmp, ~ . -t_point_sc:sex)  # same as above
 m4_shel_LRT <- drop1(m4_shel_tmp, test = "Chi")  # same as above
 m4_shel_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Same as above
 m5_shel_tmp <- update(m4_shel_tmp, ~ . -sex:mass_sc)  # same as above
 m5_shel_LRT <- drop1(m5_shel_tmp, test = "Chi")  # same as above
 m5_shel_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for shelter preference")
 
 # Fit final model of predictors
 m_shel_final <- update(m_shel_base, formula(m5_shel_tmp))
@@ -318,7 +318,7 @@ m_shel_final_marg %>%
                           ")", sep = "")) %>%
   filter(term == "(Intercept)") %>%
   select(-effect, `estimate odds ratio (probability)` = estimate) %>%
-  kable(., align = "l")
+  kable(., align = "l", caption = "Grand mean for shelter preference")
 ```
 
 #### Open-Field location preference
@@ -354,28 +354,28 @@ m_OF_base <-
 # Find largest non-significant p-value for interaction
 drop1(m_OF_base, test = "Chisq") %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for Open-Field location preference")
 
 # Remove largest non-significant p-value for interaction and update model and continue process
 m1_OF_tmp <- update(m_OF_base, ~ . -t_point_sc:sex)  # Remove most non-sig interactions
 m1_OF_LRT <- drop1(m1_OF_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_OF_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., caption = "Interaction selection for Open-Field location preference")
 
 # Same as above
 m2_OF_tmp <- update(m1_OF_tmp, ~ . -sex:mass_sc)  # same as above
 m2_OF_LRT <- drop1(m2_OF_tmp, test = "Chi")  # same as above
 m2_OF_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for Open-Field location preference")
 
 # Same as above
 m3_OF_tmp <- update(m2_OF_tmp, ~ . -t_point_sc:trial)  # same as above
 m3_OF_LRT <- drop1(m3_OF_tmp, test = "Chi")  # same as above
 m3_OF_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for Open-Field location preference")
 
 # Fit final model of predictors
 m_OF_final <- update(m_OF_base, formula(m3_OF_tmp))
@@ -427,28 +427,28 @@ m_bkgrd_base <-
 # Find largest non-significant p-value for interaction
 drop1(m_bkgrd_base, test = "Chisq") %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for background preference")
 
 # Remove largest non-significant p-value for interaction and update model and continue process
 m1_bkgrd_tmp <- update(m_bkgrd_base, ~ . -t_point_sc:trial)  # Remove most non-sig interactions
 m1_bkgrd_LRT <- drop1(m1_bkgrd_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_bkgrd_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for background preference")
 
 # Same as above
 m2_bkgrd_tmp <- update(m1_bkgrd_tmp, ~ . -t_point_sc:sex)  # same as above
 m2_bkgrd_LRT <- drop1(m2_bkgrd_tmp, test = "Chi")  # same as above
 m2_bkgrd_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for background preference")
 
 # Same as above
 m3_bkgrd_tmp <- update(m2_bkgrd_tmp, ~ . -sex:mass_sc)  # same as above
 m3_bkgrd_LRT <- drop1(m3_bkgrd_tmp, test = "Chi")  # same as above
 m3_bkgrd_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for background preference")
 
 # Fit final model bkgrd predictors
 m_bkgrd_final <- update(m_bkgrd_base, formula(m3_bkgrd_tmp))
@@ -506,7 +506,7 @@ m_act_base <-
 m_act_LRT <- 
   drop1(m_act_base, test = "Chisq") %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 m_act_LRT
 
@@ -515,49 +515,49 @@ m1_act_tmp <- update(m_act_base, ~ . -backg:loc)  # Remove most non-sig interact
 m1_act_LRT <- drop1(m1_act_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  kable_title(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m2_act_tmp <- update(m1_act_tmp, ~ . -t_point_sc:backg)  # same as above
 m2_act_LRT <- drop1(m2_act_tmp, test = "Chi")  # same as above
 m2_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m3_act_tmp <- update(m2_act_tmp, ~ . -t_point_sc:trial)  # same as above
 m3_act_LRT <- drop1(m3_act_tmp, test = "Chi")  # same as above
 m3_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m4_act_tmp <- update(m3_act_tmp, ~ . -t_point_sc:sex)  # same as above
 m4_act_LRT <- drop1(m4_act_tmp, test = "Chi")  # same as above
 m4_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m5_act_tmp <- update(m4_act_tmp, ~ . -sex:backg)  # same as above
 m5_act_LRT <- drop1(m5_act_tmp, test = "Chi")  # same as above
 m5_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m6_act_tmp <- update(m5_act_tmp, ~ . -t_point_sc:loc)  # same as above
 m6_act_LRT <- drop1(m6_act_tmp, test = "Chi")  # same as above
 m6_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Same as above
 m7_act_tmp <- update(m6_act_tmp, ~ . -sex:mass_sc)  # same as above
 m7_act_LRT <- drop1(m7_act_tmp, test = "Chi")  # same as above
 m7_act_LRT %>%
   rd_stepwise_out(., glmmTMB = TRUE) %>%
-  knitr::kable(.)
+  kable_title(., title = "Interaction selection for lines crossed")
 
 # Fit final model act predictors
 m_act_final <- update(m_act_base, formula(m7_act_tmp))
