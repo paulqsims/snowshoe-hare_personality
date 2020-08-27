@@ -59,7 +59,7 @@ data_act <-
          across(where(is.character), ~ as_factor(.x)))  
 ```
 
-### Area explored
+## Area explored
 
 - Proportion of unique tiles entered
 
@@ -135,9 +135,9 @@ broom.mixed::tidy(m_expl_means,
         caption = "Grand mean area explored")
 ```
 
-### Risk-taking
+## Risk-taking
 
-#### Shelter exit latency
+### Shelter exit latency
 
 - Exit immediately: yes or no
 
@@ -213,7 +213,7 @@ broom.mixed::tidy(m_ExitLat_means,
         caption = "Grand mean shelter exit latency")
 ```
 
-#### Shelter preference
+### Shelter preference
 
 - Inside or outside the shelter
 
@@ -303,7 +303,7 @@ kable(t(MuMIn::r.squaredGLMM(m_shel_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2")
 ```
 
-##### Grand Mean
+#### Grand Mean
 
 ```{r shel-pref-marg}
 m_shel_final_marg <- update(m_shel_final,
@@ -321,7 +321,7 @@ m_shel_final_marg %>%
   kable(., align = "l", caption = "Grand mean for shelter preference")
 ```
 
-#### Open-Field location preference
+### Open-Field location preference
 
 - Inner or Outer area of the Open-Field
 
@@ -397,7 +397,7 @@ kable(t(MuMIn::r.squaredGLMM(m_OF_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2")
 ```
 
-### Background preference preference
+## Background preference preference
 
 - Light or dark background
 
@@ -470,7 +470,7 @@ kable(t(MuMIn::r.squaredGLMM(m_bkgrd_final)[2,]), digits = 2, align = "l",
       caption = "Marginal and conditional R^2")
 ```
 
-### Activity
+## Activity
 
 - Number of lines crossed
 
