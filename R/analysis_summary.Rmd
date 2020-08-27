@@ -6,10 +6,12 @@ output:
     toc: true
     toc_float: true
     toc_depth: 3
-    keep_md: true
   github_document:
     toc: true
     toc_depth: 3
+# Produces html and github doc with toc, but not floating    
+#  Floating is broken in this version of rMarkdown and pandoc but need to do a
+#  upgrade to Catalina or higher to update so leaving as is for now
 ---
 
 ```{r analy-sum-knitr-opts, include = FALSE, echo = FALSE}

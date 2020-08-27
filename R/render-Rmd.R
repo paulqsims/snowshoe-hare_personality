@@ -20,5 +20,5 @@ docs_to_render <-
 
 for (doc in seq_along(docs_to_render)) {
     rmarkdown::render(docs_to_render[doc], output_dir = "reports/",
-                      output_format = NULL)
+                      output_format = "all")  # all uses yaml info in summary
 }
