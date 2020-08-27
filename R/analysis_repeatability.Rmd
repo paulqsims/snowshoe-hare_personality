@@ -764,8 +764,8 @@ m_act_base <-
             (1|ID) + (t_point_sc|trial_series),
           data = data_act_rpt,
           contrasts = list(trial = c(-1,1)),
-          ziformula= ~ 1,
-          family="nbinom2")
+          ziformula = ~ 1,
+          family = "nbinom2")
 
 # Fit model without individual ID
 m_act_reduc <- refitModelRanEf(m_act_base,
@@ -801,12 +801,14 @@ kable(as_tibble_col(attr(VarCorr(m_act_full)$cond$ID,"correlation")[1,2],
       align = "l")
 ```
 
+- Model overfit: non-positive-definite Hessian matrix so unable to test significance of intercept slope corr
+
 **Test significance of time slope (t_point_sc)**
 
 ```{r act-time}
 # Fit model with random slope
 m_act_full <- refitModelRanEf(m_act_base,
-                                 "(t_point_sc|ID) + 
+                                 "(0 + t_point_sc|ID) + (1|ID) +
                                   (t_point_sc|trial_series)") 
 
 # Fit model without random slope
@@ -818,7 +820,7 @@ rpt_SigTest(m_act_full, m_act_reduc,
             title = "Activity")
 
 # print non-significant random slope
-kable(as_tibble_col(VarCorr(m_act_full)$cond$ID[2,2],
+kable(as_tibble_col(VarCorr(m_act_full)$cond$ID[1],
       column_name = "Random slope variance estimate"),
       digits = 2,
       align = "l")
@@ -891,8 +893,10 @@ m_act_rpt_final <-
             (1|ID) + (0 + t_point_sc|trial_series) + (1|trial_series),
           data = data_act_rpt,
           contrasts = list(trial = c(-1,1)),
-          ziformula= ~ 1,
-          family="nbinom2")
+          ziformula = ~ 1,
+          family = "nbinom2",
+          control = glmmTMBControl(optimizer = optim,
+                                   optArgs = list(method = "BFGS")))
 ```
 
 ### Variance and repeatability estimates
