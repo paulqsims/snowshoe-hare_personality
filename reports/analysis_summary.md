@@ -1,16 +1,42 @@
----
-title: "Analysis Summary for Lafferty et al. 2020"
-output:
-  html_document:
-    df_print: paged
-    toc: true
-    toc_float: true
-    toc_depth: 3
-    keep_md: true
-  github_document:
-    toc: true
-    toc_depth: 3
----
+Analysis Summary for Lafferty et al. 2020
+================
+
+  - [Repeatability analyses](#repeatability-analyses)
+      - [Setup](#setup)
+      - [Area explored](#area-explored)
+          - [Random effect selection](#random-effect-selection)
+          - [Variance and repeatability
+            estimates](#variance-and-repeatability-estimates)
+      - [Risk-taking](#risk-taking)
+          - [Shelter exit latency](#shelter-exit-latency)
+          - [Shelter preference](#shelter-preference)
+          - [Open-Field location
+            preference](#open-field-location-preference)
+      - [Background preference](#background-preference)
+          - [Random-effect selection](#random-effect-selection-4)
+          - [Variance and repeatability
+            estimates](#variance-and-repeatability-estimates-3)
+      - [Activity](#activity)
+          - [Random-effect selection](#random-effect-selection-5)
+          - [Variance and repeatability
+            estimates](#variance-and-repeatability-estimates-4)
+  - [Analyses: Predictors of behavior](#analyses-predictors-of-behavior)
+      - [Setup](#setup-1)
+          - [Area explored](#area-explored-1)
+          - [Risk-taking](#risk-taking-1)
+          - [Background preference
+            preference](#background-preference-preference)
+          - [Activity](#activity-1)
+  - [Figures](#figures)
+      - [Setup](#setup-2)
+      - [Figure 2: Activity during the
+        day](#figure-2-activity-during-the-day)
+      - [Figure 3: Open-Field location preference during the day, by
+        background
+        color](#figure-3-open-field-location-preference-during-the-day-by-background-color)
+      - [Figure 4: Open-Field location preference, background color and
+        sex
+        interaction](#figure-4-open-field-location-preference-background-color-and-sex-interaction)
 
 
 
