@@ -19,6 +19,6 @@ docs_to_render <-
   c("R/analysis_summary.Rmd") # "R/analysis_repeatability.Rmd", "R/analysis_predictbehav.Rmd", "R/figures.Rmd", 
 
 for (doc in seq_along(docs_to_render)) {
-    rmarkdown::render(docs_to_render[i], output_dir = "reports/",
+    rmarkdown::render(docs_to_render[doc], output_dir = "reports/",
                       output_format = NULL)
 }
