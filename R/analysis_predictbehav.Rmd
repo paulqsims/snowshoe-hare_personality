@@ -361,7 +361,7 @@ m1_OF_tmp <- update(m_OF_base, ~ . -t_point_sc:sex)  # Remove most non-sig inter
 m1_OF_LRT <- drop1(m1_OF_tmp, test = "Chisq")  # Update model and check remaining sig interactions
 m1_OF_LRT %>%
   rd_stepwise_out(., glm = TRUE) %>%
-  kable_title(., caption = "Interaction selection for Open-Field location preference")
+  kable_title(., title = "Interaction selection for Open-Field location preference")
 
 # Same as above
 m2_OF_tmp <- update(m1_OF_tmp, ~ . -sex:mass_sc)  # same as above
