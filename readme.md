@@ -3,15 +3,15 @@ readme
 
 ## Description
 
-Data and code associated with the study “Repeatable differences in
-snowshoe hare behavior: Animal personality may facilitate adaption to
-climate change”. *In prep*. Please see the publication for further
-details on data collection, the experimental apparatus, procedure, and
-statistical analyses.
+Data, code, and figures associated with the study “Repeatable
+differences in snowshoe hare behavior: Animal personality may facilitate
+adaption to climate change”. *In prep*. Please see the publication for
+further details on data collection, the experimental apparatus,
+procedure, and statistical analyses.
 
-This repository will be permanently archived at Zenodo, with the latest
+This repository is permanently archived at Zenodo, with the latest
 release to be found here:
-<!--[![DOI](https://zenodo.org/badge/279408355.svg)](https://zenodo.org/badge/latestdoi/279408355).-->
+[![DOI](https://zenodo.org/badge/288626986.svg)](https://zenodo.org/badge/latestdoi/288626986)
 
 A report summary containing all the R script output, including plots,
 can be found at
@@ -20,11 +20,14 @@ in `reports/`. Markdown file versions (.md) are recommended for viewing
 on github and HMTL file versions (.html) are recommended for desktop
 viewing.
 
-R Markdown files can be rendered by sourcing
+R Markdown files for the readme and summary report can be rendered by
+sourcing
 [render-Rmd.R](https://github.com/paulqsims/snowshoe-hare_personality/blob/master/R/render-Rmd.R)
-in `R/`
+in `R/`. Individual .Rmd files for each section of the analysis can be
+rendered using the provided code in the `render-Rmd.R` file or by
+knitting each .Rmd file independently.
 
-**Last update**: 2020-08-19
+**Last update**: 2020-09-10
 
 ## Authors
 
@@ -45,7 +48,7 @@ L. Scott Mills (<scott.mills@mso.umt.edu>)
 
 ## Prerequisites: R version and R packages
 
-R version 3.6.3 (2020-02-29)
+R version 4.0.2 (2020-06-22)
 
 | Package\_Name | Version | Function      |
 | :------------ | :------ | :------------ |
@@ -60,7 +63,7 @@ R version 3.6.3 (2020-02-29)
 | ggplot2       | 3.3.2   | Plots         |
 | ggsignif      | 0.6.0   | Plots         |
 | scales        | 1.1.1   | Plots         |
-| effects       | 4.1.4   | Plots         |
+| effects       | 4.2.0   | Plots         |
 | rprojroot     | 1.3.2   | Miscellaneous |
 | rmarkdown     | 2.3     | Miscellaneous |
 | knitr         | 1.29    | Miscellaneous |
